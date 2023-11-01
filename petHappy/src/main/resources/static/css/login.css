@@ -1,5 +1,7 @@
+
+
 :root{
-    --myColor:{value}
+    --greenColor: #bfd798;
 }
 
 
@@ -8,26 +10,26 @@ body{
 }
 h3 {
     display: flex;
-    font-size: 40px;
+    font-size: 50px;
     justify-content: center;
     align-items: center;
-    color: rgba(1,167,225,255);
+    color: black;
+
 }
 
 .form{
     display: flex;
     flex-direction: column;
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bold;
-    justify-content: center;
     flex-wrap: wrap;
     align-content: center;
-    color: rgba(1,167,225,255);
+    color: var(--greenColor);
     gap: 50px;
-    border: solid rgba(1,167,225,255) 2px;
-    height: 50vh;
-    padding: 50px;
-    background-color: rgba(1,167,225,255);
+    border: solid var(--greenColor) 2px;
+    height: 70vh;
+    padding: 20px;
+    background-color: var(--greenColor);
 }
 
 .form div{
@@ -41,17 +43,19 @@ h3 {
     height: 50px;
     border-radius: 8px;
     font-size: 20px;
+    border: solid black 3px;
 
 }
 
 
 button {
-    display: flex;
-    width: 260px;
+    width: 360px;
     border-radius: 8px;
     text-align: center;
     font-size: 30px;
-    margin-left: 140px;
+    margin-left: 100px;
+    border: solid black 3px;
+    padding: 5px;
 }
 
 footer {

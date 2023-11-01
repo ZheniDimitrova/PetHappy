@@ -13,8 +13,67 @@
 <header th:replace="fragments/commons::nav">
 </header>
 
-<h3>РЕГИСТРИРАЙ СЕ</h3>
-<body>
+
+
+<section class="reg-form">
+
+    <h3>РЕГИСТРИРАЙ СЕ</h3>
+
+    <div class="username">
+        <input type="text" name="register-username" id="register-username" required
+               placeholder="  Потребителско име">
+    </div>
+
+    <div class="f-name">
+        <input type="text" name="register-first-name" id="first-name" required
+               placeholder="  Име">
+    </div>
+
+    <div class="l-name">
+        <input type="text" name="register-last-name" id="last-name" required
+               placeholder="  Фамилия">
+    </div>
+
+    <div class="email">
+        <input type="text" name="register-email" id="reg-email" required
+               placeholder="  email">
+    </div>
+
+    <div class="pass">
+        <input type="password" name="login-password" id="login-password" required
+               placeholder="  Парола">
+    </div>
+
+    <div class="phone">
+        <input type="number" name="phone number" id="ph-number" required
+               placeholder="  Телефонен номер">
+    </div>
+<!--    <div class="dog-name">-->
+<!--        <input type="text" name="register-dog-name" id="reg-dog-name" required-->
+<!--               placeholder="  Име на домашен любимец">-->
+<!--    </div>-->
+
+<!--    <select class="custom-select-pet-type" id="pet-type" name="pet-type">-->
+<!--        <option value="">Изберете опция</option>-->
+<!--        <option value="DOG">куче</option>-->
+<!--        <option value="CAT">котка</option>-->
+<!--        <option value="OTHER">друго</option>-->
+<!--    </select>-->
+
+<!--    <div class="breed">-->
+<!--        <input type="text" name="register-dog-breed" id="reg-dog-breed" required-->
+<!--               placeholder="  Порода">-->
+<!--    </div>-->
+
+<!--    <div class="birthdate">-->
+<!--        <label>Рожден ден на домашния любимец</label>-->
+<!--        <input  type="date" class="form-control" id="reg-birthDate" name="birthDate" required>-->
+<!--    </div>-->
+
+    <button>РЕГИСТРАЦИЯ</button>
+</section>
+
+<footer th:replace="fragments/commons::footer"></footer>
 
 </body>
 

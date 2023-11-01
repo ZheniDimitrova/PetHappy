@@ -1,0 +1,63 @@
+
+:root{
+    --greenColor: #bfd798;
+}
+body{
+    margin: 0;
+}
+h3 {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.reg-form{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    color: var(--greenColor);
+    gap: 20px;
+    border: solid var(--greenColor) 2px;
+    height: 70vh;
+    padding: 20px;
+    background-color: var(--greenColor);
+}
+
+.reg-form div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reg-form div input {
+    width: 550px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: solid black 3px;
+
+}
+
+
+button {
+    width: 260px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 140px;
+    border: solid black 3px;
+    padding: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50vw;
+    transform: translateX(-50%);
+}
