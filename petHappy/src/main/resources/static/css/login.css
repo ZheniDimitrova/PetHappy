@@ -1,0 +1,62 @@
+:root{
+    --myColor:{value}
+}
+
+
+body{
+    margin: 0;
+}
+h3 {
+    display: flex;
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    color: rgba(1,167,225,255);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    font-weight: bold;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    color: rgba(1,167,225,255);
+    gap: 50px;
+    border: solid rgba(1,167,225,255) 2px;
+    height: 50vh;
+    padding: 50px;
+    background-color: rgba(1,167,225,255);
+}
+
+.form div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form div input {
+    width: 550px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+
+}
+
+
+button {
+    display: flex;
+    width: 260px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 140px;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50vw;
+    transform: translateX(-50%);
+}
