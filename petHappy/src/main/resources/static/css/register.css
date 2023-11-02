@@ -11,6 +11,7 @@ h3 {
     justify-content: center;
     align-items: center;
     color: black;
+    margin-top: -10px;
 }
 
 .reg-form{
@@ -53,6 +54,8 @@ button {
     margin-left: 140px;
     border: solid black 3px;
     padding: 5px;
+    margin-top: 25px;
+
 }
 
 footer {

@@ -10,7 +10,7 @@
 
 <body>
 
-<header th:replace="fragments/commons::nav">
+<header th:replace="~{fragments/commons::nav}">
 </header>
 
 
@@ -44,9 +44,9 @@
                placeholder="  Парола">
     </div>
 
-    <div class="phone">
-        <input type="number" name="phone number" id="ph-number" required
-               placeholder="  Телефонен номер">
+    <div class="confirm">
+        <input type="password" name="confirm-pass" id="login-confirm-pass" required
+               placeholder="  Потвърди парола">
     </div>
 <!--    <div class="dog-name">-->
 <!--        <input type="text" name="register-dog-name" id="reg-dog-name" required-->
@@ -73,7 +73,7 @@
     <button>РЕГИСТРАЦИЯ</button>
 </section>
 
-<footer th:replace="fragments/commons::footer"></footer>
+<footer th:replace="~{fragments/commons::footer}"></footer>
 
 </body>
 
