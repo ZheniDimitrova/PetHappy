@@ -5,18 +5,19 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class OwnerRegisterBindingModel {
-    @Size(min = 4, max = 15, message = "Username length must be between 4 and 15 characters!")
+    private Long id;
+    @Size(min = 4, max = 15, message = "Потребителското име трябва да е с дължина между 4 и 15 символа!")
     private String username;
-    @Size(min = 2, max = 20, message = "First name length must be between 2 and 20 characters!")
+    @Size(min = 2, max = 20, message = "Името трябва да е с дължина между 2 и 20 символа!")
     private String firstName;
-    @Size(min = 2, max = 20, message = "Last name length must be between 2 and 20 characters!")
+    @Size(min = 2, max = 20, message = "Фамилията трябва да е с дължина между 2 и 20 символа!")
     private String lastName;
-    @Email(message = "Enter valid email!")
-    @NotBlank(message = "Email can not be empty!")
+    @Email(message = "Въведете валиден имейл адрес!")
+    @NotBlank(message = "Въведете имейл адрес!")
     private String email;
-    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20 characters!")
+    @Size(min = 3, max = 20, message = "Паролата трябва да е с дължина между 3 и 20 символа!")
     private String password;
-    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20 characters!")
+    @Size(min = 3, max = 20)
     private String confirmPassword;
 
 
@@ -25,6 +26,13 @@ public class OwnerRegisterBindingModel {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

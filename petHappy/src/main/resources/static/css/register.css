@@ -25,7 +25,7 @@ h3 {
     color: var(--greenColor);
     gap: 20px;
     border: solid var(--greenColor) 2px;
-    height: 70vh;
+    height: 75vh;
     padding: 20px;
     background-color: var(--greenColor);
 }
@@ -60,7 +60,22 @@ button {
 
 footer {
     position: absolute;
-    bottom: 15px;
+    bottom: 8px;
     left: 50vw;
     transform: translateX(-50%);
+}
+
+.input-error {
+    background-color: rgba(236,28,46,255);
+}
+
+.error-message {
+    color: rgba(236,28,46,255);
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+form div {
+    margin-bottom: 15px;
 }

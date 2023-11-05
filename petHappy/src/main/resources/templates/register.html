@@ -14,63 +14,73 @@
 </header>
 
 
-
 <section class="reg-form">
 
     <h3>РЕГИСТРИРАЙ СЕ</h3>
 
-    <div class="username">
-        <input type="text" name="register-username" id="register-username" required
-               placeholder="  Потребителско име">
-    </div>
+    <form th:method="post" th:action="@{/owners/register}" th:object="${ownerRegisterBindingModel}">
 
-    <div class="f-name">
-        <input type="text" name="register-first-name" id="first-name" required
-               placeholder="  Име">
-    </div>
+        <div class="username">
+            <input type="text" th:field="*{username}" name="register-username" id="register-username" required
+                   placeholder="  Потребителско име" th:errorclass="input-error">
+            <small th:errors="*{username}" class="error-message"></small>
+        </div>
 
-    <div class="l-name">
-        <input type="text" name="register-last-name" id="last-name" required
-               placeholder="  Фамилия">
-    </div>
+        <div class="f-name">
+            <input type="text" th:field="*{firstName}" name="register-first-name" id="first-name" required
+                   placeholder="  Име" th:errorclass="input-error">
+            <small th:errors="*{firstName}" class="error-message"></small>
+        </div>
 
-    <div class="email">
-        <input type="text" name="register-email" id="reg-email" required
-               placeholder="  email">
-    </div>
+        <div class="l-name">
+            <input type="text" th:field="*{lastName}" name="register-last-name" id="last-name" required
+                   placeholder="  Фамилия" th:errorclass="input-error">
+            <small th:errors="*{lastName}" class="error-message"></small>
+        </div>
 
-    <div class="pass">
-        <input type="password" name="login-password" id="login-password" required
-               placeholder="  Парола">
-    </div>
+        <div class="email">
+            <input type="text" th:field="*{email}" name="register-email" id="reg-email" required
+                   placeholder="  email" th:errorclass="input-error">
+            <small th:errors="*{email}" class="error-message"></small>
+        </div>
 
-    <div class="confirm">
-        <input type="password" name="confirm-pass" id="login-confirm-pass" required
-               placeholder="  Потвърди парола">
-    </div>
-<!--    <div class="dog-name">-->
-<!--        <input type="text" name="register-dog-name" id="reg-dog-name" required-->
-<!--               placeholder="  Име на домашен любимец">-->
-<!--    </div>-->
+        <div class="pass">
+            <input type="password" th:field="*{password}" name="login-password" id="login-password" required
+                   placeholder="  Парола" th:errorclass="input-error">
+            <small th:errors="*{password}" class="error-message"></small>
+        </div>
 
-<!--    <select class="custom-select-pet-type" id="pet-type" name="pet-type">-->
-<!--        <option value="">Изберете опция</option>-->
-<!--        <option value="DOG">куче</option>-->
-<!--        <option value="CAT">котка</option>-->
-<!--        <option value="OTHER">друго</option>-->
-<!--    </select>-->
+        <div class="confirm">
+            <input type="password" th:field="*{confirmPassword}" name="confirm-pass" id="login-confirm-pass" required
+                   placeholder="  Потвърди парола" th:errorclass="input-error">
+            <small th:errors="*{confirmPassword}"></small>
+        </div>
 
-<!--    <div class="breed">-->
-<!--        <input type="text" name="register-dog-breed" id="reg-dog-breed" required-->
-<!--               placeholder="  Порода">-->
-<!--    </div>-->
+        <button type="submit">РЕГИСТРАЦИЯ</button>
+    </form>
+    <!--    <div class="dog-name">-->
+    <!--        <input type="text" name="register-dog-name" id="reg-dog-name" required-->
+    <!--               placeholder="  Име на домашен любимец">-->
+    <!--    </div>-->
 
-<!--    <div class="birthdate">-->
-<!--        <label>Рожден ден на домашния любимец</label>-->
-<!--        <input  type="date" class="form-control" id="reg-birthDate" name="birthDate" required>-->
-<!--    </div>-->
+    <!--    <select class="custom-select-pet-type" id="pet-type" name="pet-type">-->
+    <!--        <option value="">Изберете опция</option>-->
+    <!--        <option value="DOG">куче</option>-->
+    <!--        <option value="CAT">котка</option>-->
+    <!--        <option value="OTHER">друго</option>-->
+    <!--    </select>-->
 
-    <button>РЕГИСТРАЦИЯ</button>
+    <!--    <div class="breed">-->
+    <!--        <input type="text" name="register-dog-breed" id="reg-dog-breed" required-->
+    <!--               placeholder="  Порода">-->
+    <!--    </div>-->
+
+    <!--    <div class="birthdate">-->
+    <!--        <label>Рожден ден на домашния любимец</label>-->
+    <!--        <input  type="date" class="form-control" id="reg-birthDate" name="birthDate" required>-->
+    <!--    </div>-->
+
+
 </section>
 
 <footer th:replace="~{fragments/commons::footer}"></footer>

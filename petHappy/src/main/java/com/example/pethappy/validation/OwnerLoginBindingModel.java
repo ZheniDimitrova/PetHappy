@@ -3,6 +3,8 @@ package com.example.pethappy.validation;
 import jakarta.validation.constraints.Size;
 
 public class OwnerLoginBindingModel {
+
+    private Long id;
     @Size(min = 4, max = 15, message = "Username length must be between 4 and 15 characters!")
     private String username;
     @Size(min = 3, max = 20, message = "Password length must be between 3 and 20 characters!")
@@ -10,6 +12,14 @@ public class OwnerLoginBindingModel {
 
 
     public OwnerLoginBindingModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {

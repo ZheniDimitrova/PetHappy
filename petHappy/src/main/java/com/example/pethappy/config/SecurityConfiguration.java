@@ -1,9 +1,17 @@
 package com.example.pethappy.config;
 
+import com.example.pethappy.repository.OwnerRepository;
+import com.example.pethappy.service.impl.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.context.DelegatingSecurityContextRepository;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.RequestAttributeSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 
 
 @Configuration
@@ -11,7 +19,7 @@ public class SecurityConfiguration {
 
     @SuppressWarnings("removal")
     @Bean
-    public SecurityFilterChain getSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain getSecurityFilterChain(HttpSecurity httpSecurity, SecurityContextRepository securityContextRepository) throws Exception {
 
 
         httpSecurity.authorizeHttpRequests()
@@ -19,8 +27,26 @@ public class SecurityConfiguration {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/owners/login");
+                .loginPage("/owners/login")
+                .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
+                .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
+                .defaultSuccessUrl("/", true)
+                .failureForwardUrl("/users/login-error")
+                .and().logout().logoutUrl("/users/logout")
+                .logoutSuccessUrl("/")
+                .and().securityContext()
+                .securityContextRepository(securityContextRepository);
 
         return httpSecurity.build();
+    }
+
+    @Bean
+    public SecurityContextRepository getSecurityContextRepository() {
+        return new DelegatingSecurityContextRepository(new RequestAttributeSecurityContextRepository(), new HttpSessionSecurityContextRepository());
+    }
+
+    @Bean
+    public UserDetailsService getUserDetailsService(OwnerRepository ownerRepository) {
+        return new UserDetailsServiceImpl(ownerRepository);
     }
 }

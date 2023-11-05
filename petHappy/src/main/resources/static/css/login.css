@@ -59,6 +59,10 @@ button {
     margin-top: 50px;
 }
 
+form div {
+    margin-bottom: 15px;
+}
+
 footer {
     position: absolute;
     bottom: 15px;

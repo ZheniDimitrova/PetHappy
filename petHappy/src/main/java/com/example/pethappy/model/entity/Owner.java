@@ -1,9 +1,7 @@
 package com.example.pethappy.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.example.pethappy.model.entity.enums.UserRoleEnum;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -20,14 +18,14 @@ public class Owner extends BaseEntity {
     private String firstName;
     @Column(nullable = false)
     private String lastName;
-    @Column(nullable = false)
+    @Column
     private String town;
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<Pet> pets;
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<Order> orders;
-
-
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<UserRole> userRoles;
 
 
     public Owner() {
@@ -95,5 +93,13 @@ public class Owner extends BaseEntity {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    public Set<UserRole> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Set<UserRole> userRoles) {
+        this.userRoles = userRoles;
     }
 }
