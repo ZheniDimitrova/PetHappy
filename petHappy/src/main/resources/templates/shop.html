@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pet Happy</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" th:href="@{/css/shop.css}">
+</head>
+
+<body>
+
+<header th:replace="~{fragments/commons::nav}">
+</header>
+
+<article class="container">
+<h2>ИЗБЕРЕТЕ КАТЕГОРИЯ</h2>
+
+<section class="categories">
+
+  <div class="image">
+    <img th:src="@{/images/catCategory.jpg}">
+    <p>КОТКИ</p>
+  </div>
+  
+  <div class="image">
+    <img th:src="@{/images/categoryDog.jpg}">
+    <p>КУЧЕТА</p>
+  </div>
+
+  <div class="image">
+    <img th:src="@{/images/categoryOther.jpg}">
+    <p>ДРУГИ</p>
+  </div>
+
+</section>
+</article>
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

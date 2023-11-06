@@ -1,0 +1,51 @@
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    background-color: var(--greenColor);
+    height: 75vh;
+    padding-top: 20px;
+}
+
+.categories {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    margin: 40px;
+    color: var(--orangeColor);
+    padding-top: 40px;
+}
+
+.image {
+    border: solid var(--orangeColor) 5px;
+    margin: 2vw;
+    background-color: var(--orangeColor);
+}
+
+.image img{
+    width: 26vw;
+}
+
+.image p {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50vw;
+    transform: translateX(-50%);
+}

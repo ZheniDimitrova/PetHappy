@@ -10,9 +10,9 @@
 <header>
     <nav>
         <div class="left-nav">
-            <a href=""sec:authorize="isAuthenticated()">FAQ</a>
-            <a href="">ЗА НАС</a>
-            <a href="">МАГАЗИН</a>
+            <a th:href="@{/}"sec:authorize="isAuthenticated()">FAQ</a>
+            <a th:href="@{/aboutUs}">ЗА НАС</a>
+            <a th:href="@{/shop}"sec:authorize="isAuthenticated()">МАГАЗИН</a>
         </div>
 
         <img th:src="@{/images/happyPetLogo.webp}">
@@ -27,8 +27,6 @@
 </header>
 
 <footer>All rights reserved. © 2023 Zheni.Di project</footer>
-
-
 
 </body>
 </html>

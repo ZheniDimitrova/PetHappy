@@ -1,0 +1,37 @@
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+
+.about-us {
+    display: flex;
+    gap: 50px;
+    background-color: var(--greenColor);
+    height: 72vh;
+    padding-top: 20px;
+}
+
+.image img{
+    width: 70vh;
+    margin-left: 2vw;
+}
+
+div h2{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+ p {
+    font-size: 24px;
+     text-align: justify;
+     margin-right: 2vw;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50vw;
+    transform: translateX(-50%);
+}
