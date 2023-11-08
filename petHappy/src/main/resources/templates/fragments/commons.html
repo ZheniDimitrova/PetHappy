@@ -20,7 +20,7 @@
         <div class="right-nav">
             <a th:href="@{/owners/register}" sec:authorize="!isAuthenticated()">РЕГИСТРАЦИЯ</a>
             <a th:href="@{/owners/login}" sec:authorize="!isAuthenticated()">ВХОД</a>
-            <a href="" sec:authorize="isAuthenticated()">ОТПИСВАНЕ</a>
+            <a th:href="@{/owners/logout}" sec:authorize="isAuthenticated()">ОТПИСВАНЕ</a>
         </div>
     </nav>
 
