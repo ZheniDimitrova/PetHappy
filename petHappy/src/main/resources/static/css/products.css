@@ -1,0 +1,12 @@
+
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+
+.product {
+    border: solid 1px var(--orangeColor);
+    padding: 20px;
+    width: fit-content;
+}

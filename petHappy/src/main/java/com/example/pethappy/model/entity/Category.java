@@ -13,4 +13,23 @@ public class Category extends BaseEntity {
     private CategoryNameEnum categoryName;
     @OneToMany(mappedBy = "category")
     private Set<Product> products;
+
+    public Category() {
+    }
+
+    public CategoryNameEnum getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(CategoryNameEnum categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
 }

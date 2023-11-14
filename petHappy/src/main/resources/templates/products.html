@@ -12,5 +12,14 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
+<div class="product" th:each="p:${products}">
+    <img src="">
+    <p th:text="p.name"></p>
+    <p th:text="p.price"></p>
+    <button>КУПИ</button>
+
+
+</div>
+
 </body>
 </html>
