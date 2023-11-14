@@ -4,6 +4,13 @@
     --orangeColor: rgba(246,132,32,255);
 }
 
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    font-size: 40px;
+}
+
 
 .product {
     border: solid 1px var(--orangeColor);

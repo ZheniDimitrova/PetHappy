@@ -1,5 +1,6 @@
 package com.example.pethappy.web;
 
+import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.service.ProductService;
@@ -22,11 +23,19 @@ public class ProductController {
     public String products(Model model, @PathVariable("type") String type) {
 
         PetTypeEnum petTypeEnum = PetTypeEnum.valueOf(type);
-        List<Product> productsList = productService.findByPetTypeEnum(petTypeEnum);
+        List<ProductExportDto> productsList = productService.findByPetTypeEnum(petTypeEnum);
 
         model.addAttribute("products", productsList);
 
         return "products";
+    }
+
+    @GetMapping("/currentProduct/{id}")
+    public String currentProduct(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("id", id);
+
+        return "currentProduct";
+
     }
 
 }

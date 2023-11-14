@@ -12,14 +12,16 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
-<div class="product" th:each="p:${products}">
-    <img src="">
-    <p th:text="p.name"></p>
-    <p th:text="p.price"></p>
-    <button>КУПИ</button>
-
-
-</div>
+<article class="product-container">
+    <div class="product" th:each="p:${products}">
+        <img src="">
+        <p th:text="${p.name}"></p>
+        <p th:text="${p.price}"></p>
+        <a th:href="@{/currentProduct/{id}(id=${p.id})}">
+            <button>КУПИ</button>
+        </a>
+    </div>
+</article>
 
 </body>
 </html>
