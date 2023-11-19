@@ -71,6 +71,7 @@ public class ProductServiceImpl implements ProductService {
                 petTypeEnum = PetTypeEnum.OTHER;
             }
             product.setForType(petTypeEnum);
+            product.setCount(random.nextInt(9) + 1);
             productsRepository.save(product);
         }
 

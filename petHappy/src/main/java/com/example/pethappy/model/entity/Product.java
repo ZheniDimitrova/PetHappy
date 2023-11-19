@@ -11,10 +11,14 @@ public class Product extends BaseEntity {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
+    private int count;
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private PetTypeEnum forType;
     @Column(nullable = false)
     private BigDecimal price;
+
+
 
     @ManyToOne
     private Category category;
@@ -31,6 +35,14 @@ public class Product extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public PetTypeEnum getForType() {

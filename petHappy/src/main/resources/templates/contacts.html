@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pet Happy</title>
-  <link rel="stylesheet" th:href="@{/css/contacts.css}">
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/contacts.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
@@ -12,15 +12,17 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
-<section>
-  <p>КОНТАКТИ</p>
-  <p>Адрес: Гр. Стара Загора, ул."Златан Станчев" №26</p>
-  <p>Телефон за поръчки: 0882 288 289</p>
-  <p>Имейл: happy_pet@abv.bg</p>
+<section class="contacts">
+    <div class="info">
+        <p>КОНТАКТИ</p>
+        <p><b>Адрес:</b> гр. Стара Загора, кв."Ремиза" </p>
+        <p><b>Телефон за поръчки:</b> 0882 288 289</p>
+        <p><b>Имейл:</b> happy_pet@abv.bg</p>
+    </div>
 
-<div>
-<img th:src="@{/images/animals.png}">
-</div>
+    <div class="image">
+        <img th:src="@{/images/animals.png}">
+    </div>
 
 </section>
 

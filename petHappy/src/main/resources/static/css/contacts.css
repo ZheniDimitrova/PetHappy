@@ -1,0 +1,25 @@
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.contacts .info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--greenColor);
+    width: 100vw;
+    text-align: center;
+}
+
+
+section .image img{
+    width: 54vw;
+}
