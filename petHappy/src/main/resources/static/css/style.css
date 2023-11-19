@@ -41,7 +41,7 @@ nav {
 nav .left-nav  a {
     color: rgba(246,132,32,255);
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin: 50px;
 }
@@ -49,7 +49,7 @@ nav .left-nav  a {
 nav .right-nav  a {
     color: rgba(246,132,32,255);
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin: 50px;
 }

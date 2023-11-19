@@ -1,7 +1,6 @@
 package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
-import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.service.ProductService;
 import org.springframework.stereotype.Controller;
@@ -32,7 +31,7 @@ public class ProductController {
 
     @GetMapping("/currentProduct/{id}")
     public String currentProduct(Model model, @PathVariable("id") Long id) {
-        model.addAttribute("id", id);
+
 
         return "currentProduct";
 

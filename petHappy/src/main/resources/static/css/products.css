@@ -6,7 +6,8 @@
 
 .product-container {
     display: flex;
-    justify-content: space-around;
+    gap: 50px;
+    flex-wrap: wrap;
     padding: 50px;
     font-size: 40px;
 }

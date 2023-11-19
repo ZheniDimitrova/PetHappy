@@ -10,9 +10,10 @@
 <header>
     <nav>
         <div class="left-nav">
-            <a th:href="@{/}"sec:authorize="isAuthenticated()">FAQ</a>
+
             <a th:href="@{/aboutUs}">ЗА НАС</a>
-            <a th:href="@{/shop}"sec:authorize="isAuthenticated()">МАГАЗИН</a>
+            <a th:href="@{/shop}"sec:authorize="!isAuthenticated()">МАГАЗИН</a>
+            <a th:href="@{/contacts}">КОНТАКТИ</a>
         </div>
 
         <img th:src="@{/images/happyPetLogo.webp}">
@@ -20,6 +21,7 @@
         <div class="right-nav">
             <a th:href="@{/owners/register}" sec:authorize="!isAuthenticated()">РЕГИСТРАЦИЯ</a>
             <a th:href="@{/owners/login}" sec:authorize="!isAuthenticated()">ВХОД</a>
+            <a th:href="@{/}"sec:authorize="isAuthenticated()">FAQ</a>
             <a th:href="@{/owners/logout}" sec:authorize="isAuthenticated()">ОТПИСВАНЕ</a>
         </div>
     </nav>

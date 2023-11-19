@@ -23,7 +23,7 @@ public class SecurityConfiguration {
 
 
         httpSecurity.authorizeHttpRequests()
-                .requestMatchers( "/", "/static/**", "/images/**", "/css/**","/owners/login", "/owners/register", "/aboutUs").permitAll()
+                .requestMatchers( "/", "/static/**", "/images/**", "/css/**","/owners/login", "/owners/register", "/aboutUs", "/contacts").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

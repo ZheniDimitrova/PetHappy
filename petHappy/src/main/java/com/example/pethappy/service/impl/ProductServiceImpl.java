@@ -50,21 +50,22 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void initProducts() {
+
         if (productsRepository.count() > 0) {
             return;
         }
 
         Random random = new Random();
 
-        for (int i = 1; i <= 21; i++) {
+        for (int i = 1; i <= 36; i++) {
             Product product = new Product();
             product.setName("product" + i);
             product.setPrice(new BigDecimal(random.nextDouble()));
 
             PetTypeEnum petTypeEnum = null;
-            if (i <= 7) {
+            if (i <= 12) {
                 petTypeEnum = PetTypeEnum.CAT;
-            } else if (i <= 14) {
+            } else if (i <= 24) {
                 petTypeEnum = PetTypeEnum.DOG;
             } else {
                 petTypeEnum = PetTypeEnum.OTHER;

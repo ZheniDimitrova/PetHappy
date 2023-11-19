@@ -18,5 +18,11 @@ public class HomeController {
         return "shop";
     }
 
+    @GetMapping("/contacts")
+    public String contacts() {
+
+        return "contacts";
+    }
+
 
 }
