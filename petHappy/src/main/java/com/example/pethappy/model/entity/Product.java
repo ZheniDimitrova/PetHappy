@@ -12,11 +12,15 @@ public class Product extends BaseEntity {
     private String name;
     @Column(nullable = false)
     private int count;
+    @Column
+    private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private PetTypeEnum forType;
     @Column(nullable = false)
     private BigDecimal price;
+    @OneToOne(mappedBy = "product")
+    private Picture picture;
 
 
 
@@ -45,6 +49,15 @@ public class Product extends BaseEntity {
         this.count = count;
     }
 
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public PetTypeEnum getForType() {
         return forType;
     }
@@ -60,6 +73,14 @@ public class Product extends BaseEntity {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public Picture getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Picture picture) {
+        this.picture = picture;
     }
 
     public Category getCategory() {

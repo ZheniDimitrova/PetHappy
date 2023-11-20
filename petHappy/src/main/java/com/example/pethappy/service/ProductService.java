@@ -14,4 +14,7 @@ public interface ProductService {
     List<ProductExportDto> findByPetTypeEnum(PetTypeEnum petTypeEnum);
 
     void initProducts();
+
+    ProductExportDto getProductDtoById(Long id);
 }
+

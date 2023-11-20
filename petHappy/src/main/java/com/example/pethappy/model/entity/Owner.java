@@ -3,6 +3,7 @@ package com.example.pethappy.model.entity;
 import com.example.pethappy.model.entity.enums.UserRoleEnum;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,14 @@ public class Owner extends BaseEntity {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<UserRole> userRoles;
 
+    public Owner(String username, String password, String email, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userRoles = new HashSet<>();
+    }
 
     public Owner() {
     }

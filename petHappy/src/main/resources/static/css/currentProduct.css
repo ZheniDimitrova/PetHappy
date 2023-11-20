@@ -1,0 +1,33 @@
+@import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+.container {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+}
+
+.container .desc {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+}
+button {
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 5px 40px;
+    background-color: var(--greenColor);
+}
+.image-container img {
+    width: 25vw;
+}
+
+footer {
+    margin-top: 20vh;
+}

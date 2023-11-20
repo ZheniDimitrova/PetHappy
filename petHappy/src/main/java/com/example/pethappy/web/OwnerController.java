@@ -75,4 +75,10 @@ public class OwnerController {
 
     }
 
+    @GetMapping("/admin")
+    public String admin() {
+
+        return "admin";
+    }
+
 }

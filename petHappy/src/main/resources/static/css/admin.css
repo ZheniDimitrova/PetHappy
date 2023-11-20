@@ -1,0 +1,62 @@
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    color: var(--greenColor);
+    gap: 20px;
+    border: solid var(--greenColor) 2px;
+    height: 70vh;
+    padding: 20px;
+    background-color: var(--greenColor);
+}
+
+.addProduct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.addProduct input {
+    width: 550px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: solid black 3px;
+}
+.addProduct .categories {
+    width: 560px;
+    height: 55px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: solid black 3px;
+}
+#picture {
+    border: none;
+}
+button {
+    width: 260px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 30px;
+    margin-left: 140px;
+    border: solid black 3px;
+    padding: 5px;
+    margin-top: 25px;
+
+}
+
+footer {
+    position: absolute;
+    bottom: 8px;
+    left: 50vw;
+    transform: translateX(-50%);
+}

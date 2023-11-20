@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+
+<body>
+
+<header th:replace="~{fragments/commons::nav}">
+</header>
+
+<section class="form-container">
+    <form class="addProduct">
+        <select class="categories" id="pet-type" name="pet-type">-->
+            <option value="">Изберете категория</option>
+            <option value="DOG"> Куче</option>
+            <option value="CAT"> Котка</option>
+            <option value="OTHER"> Друго</option>
+        </select>
+        <input type="text" name="product-name" id="product-name" placeholder=" Име на продукта">
+        <input type="text" name="description" id="description" placeholder=" Описание на продукта">
+        <input type="number" name="price" id="price" placeholder=" Цена">
+
+    <div class="file">
+        <input type="file" name="picture" id="picture" placeholder=" Качи снимка">
+    </div>
+    </form>
+    <button type="submit">Добави продукт</button>
+</section>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

@@ -76,4 +76,12 @@ public class ProductServiceImpl implements ProductService {
         }
 
     }
+
+    @Override
+    public ProductExportDto getProductDtoById(Long id) {
+        Product product = productsRepository.findById(id).get();
+
+        ProductExportDto exportDto = modelMapper.map(product, ProductExportDto.class);
+        return exportDto;
+    }
 }

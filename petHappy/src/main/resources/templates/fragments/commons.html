@@ -21,6 +21,7 @@
         <div class="right-nav">
             <a th:href="@{/owners/register}" sec:authorize="!isAuthenticated()">РЕГИСТРАЦИЯ</a>
             <a th:href="@{/owners/login}" sec:authorize="!isAuthenticated()">ВХОД</a>
+            <a th:href="@{/owners/admin}" sec:authorize="hasAuthority('ADMINISTRATOR')">АДМИНИСТРАТОР</a>
             <a th:href="@{/}"sec:authorize="isAuthenticated()">ЗНЕТЕ ЛИ, ЧЕ...</a>
             <a th:href="@{/owners/logout}" sec:authorize="isAuthenticated()">ОТПИСВАНЕ</a>
         </div>
