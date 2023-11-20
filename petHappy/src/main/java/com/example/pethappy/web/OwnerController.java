@@ -81,4 +81,10 @@ public class OwnerController {
         return "admin";
     }
 
+    @GetMapping("/moderator")
+    public String moderator() {
+
+        return "moderator";
+    }
+
 }

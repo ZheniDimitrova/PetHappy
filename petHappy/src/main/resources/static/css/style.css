@@ -27,7 +27,7 @@ footer {
 
 
 nav img {
-    width: 430px;
+    width: 23vw;
 }
 
 
@@ -37,19 +37,22 @@ nav {
     justify-content: space-between;
     padding: 10px 5px;
 
-}
-nav .left-nav  a {
-    color: rgba(246,132,32,255);
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 50px;
+
 }
 
-nav .right-nav  a {
+.right-nav {
+    display: flex;
+}
+
+form {
+    width: fit-content;
+}
+nav a,#logout-btn {
     color: rgba(246,132,32,255);
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
-    margin: 50px;
+    margin: 20px;
+    background-color: transparent;
+    border: none;
 }
