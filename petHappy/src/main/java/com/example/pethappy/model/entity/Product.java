@@ -19,7 +19,7 @@ public class Product extends BaseEntity {
     private PetTypeEnum forType;
     @Column(nullable = false)
     private BigDecimal price;
-    @OneToOne(mappedBy = "product")
+    @OneToOne
     private Picture picture;
 
 

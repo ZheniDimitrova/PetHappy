@@ -41,6 +41,7 @@
 }
 #picture {
     border: none;
+    color: black;
 }
 button {
     width: 260px;

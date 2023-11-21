@@ -20,5 +20,9 @@ public interface ProductService {
     ProductExportDto getProductDtoById(Long id);
 
     Product addProduct(AddProductBindingModel addProductBindingModel) throws IOException;
+
+
+    Product findProductById(Long id);
+
 }
 

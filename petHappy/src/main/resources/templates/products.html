@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Pet Happy</title>
@@ -14,14 +14,14 @@
 
 <article class="product-container">
     <div class="product" th:each="p:${products}">
-        <img src="">
+        <img th:src="@{/downloadPicture/{productId}(productId=${p.id})}" class="">
         <p th:text="${p.name}"></p>
         <p th:text="${p.price}"></p>
         <a th:href="@{/currentProduct/{id}(id=${p.id})}">
-            <button>КУПИ</button>
+            <button type="submit">КУПИ</button>
         </a>
     </div>
 </article>
-
+<footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
 </html>
