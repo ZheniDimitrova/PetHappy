@@ -12,14 +12,13 @@ public class Picture extends BaseEntity {
     @Lob
     @Column(length = Integer.MAX_VALUE)
     private byte[] bytes;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     private Product product;
 
-    public Picture(String pictureType, String pictureName, byte[] bytes, Product product) {
+    public Picture(String pictureType, String pictureName, byte[] bytes) {
         this.pictureType = pictureType;
         this.pictureName = pictureName;
         this.bytes = bytes;
-        this.product = product;
     }
 
     public Picture() {

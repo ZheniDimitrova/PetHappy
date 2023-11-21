@@ -2,15 +2,20 @@ package com.example.pethappy.service.impl;
 
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Category;
+import com.example.pethappy.model.entity.Picture;
 import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.CategoryNameEnum;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.repository.CategoryRepository;
+import com.example.pethappy.repository.PictureRepository;
 import com.example.pethappy.repository.ProductRepository;
 import com.example.pethappy.service.ProductService;
+import com.example.pethappy.validation.AddProductBindingModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
@@ -22,11 +27,14 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productsRepository;
     private final CategoryRepository categoryRepository;
+
+    private final PictureRepository pictureRepository;
     private final ModelMapper modelMapper;
 
-    public ProductServiceImpl(ProductRepository productsRepository, CategoryRepository categoryRepository, ModelMapper modelMapper) {
+    public ProductServiceImpl(ProductRepository productsRepository, CategoryRepository categoryRepository, PictureRepository pictureRepository, ModelMapper modelMapper) {
         this.productsRepository = productsRepository;
         this.categoryRepository = categoryRepository;
+        this.pictureRepository = pictureRepository;
         this.modelMapper = modelMapper;
     }
 
@@ -83,5 +91,25 @@ public class ProductServiceImpl implements ProductService {
 
         ProductExportDto exportDto = modelMapper.map(product, ProductExportDto.class);
         return exportDto;
+    }
+
+    @Override
+    public Product addProduct(AddProductBindingModel addProductBindingModel) throws IOException {
+
+        MultipartFile picture = addProductBindingModel.getPicture();
+
+        Picture pic = new Picture(picture.getContentType(), picture.getName(), picture.getBytes());
+        pictureRepository.save(pic);
+
+
+        Product product = modelMapper.map(addProductBindingModel, Product.class);
+        product.setCount(product.getCount() + 1);
+        product.setForType(PetTypeEnum.valueOf(addProductBindingModel.getForType()));
+
+        product.setPicture(pic);
+
+        productsRepository.save(product);
+
+        return product;
     }
 }

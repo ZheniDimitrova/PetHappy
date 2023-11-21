@@ -13,22 +13,23 @@
 </header>
 
 <section class="form-container">
-    <form class="addProduct">
-        <select class="categories" id="pet-type" name="pet-type">-->
+    <form th:method="post" th:action="@{/products/addProduct}" th:object="${addProductBindingModel}" class="addProduct" enctype="multipart/form-data">
+        <select class="categories" id="pet-type" name="forType" required>
             <option value="">Изберете категория</option>
             <option value="DOG"> Куче</option>
             <option value="CAT"> Котка</option>
             <option value="OTHER"> Друго</option>
         </select>
-        <input type="text" name="product-name" id="product-name" placeholder=" Име на продукта">
-        <input type="text" name="description" id="description" placeholder=" Описание на продукта">
-        <input type="number" name="price" id="price" placeholder=" Цена">
+        <input type="text" name="productName" id="product-name" placeholder=" Име на продукта" required>
+        <input type="text" name="description" id="description" placeholder=" Описание на продукта" required>
+        <input type="number" name="price" id="price" placeholder=" Цена" required>
 
     <div class="file">
-        <input type="file" name="picture" id="picture" placeholder=" Качи снимка">
+        <input type="file" name="picture" id="picture">
     </div>
+        <button type="submit">Добави продукт</button>
     </form>
-    <button type="submit">Добави продукт</button>
+
 </section>
 <footer th:replace="~{fragments/commons::footer}"></footer>
 </body>

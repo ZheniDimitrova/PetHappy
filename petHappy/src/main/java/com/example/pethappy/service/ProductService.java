@@ -4,7 +4,9 @@ import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.CategoryNameEnum;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
+import com.example.pethappy.validation.AddProductBindingModel;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ProductService {
@@ -16,5 +18,7 @@ public interface ProductService {
     void initProducts();
 
     ProductExportDto getProductDtoById(Long id);
+
+    Product addProduct(AddProductBindingModel addProductBindingModel) throws IOException;
 }
 
