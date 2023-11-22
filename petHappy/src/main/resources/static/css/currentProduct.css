@@ -1,8 +1,14 @@
 @import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
 
-:root{
+:root {
     --greenColor: #bfd798;
-    --orangeColor: rgba(246,132,32,255);
+    --orangeColor: rgba(246, 132, 32, 255);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -14,20 +20,27 @@
 }
 
 .container .desc {
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
     padding: 20px;
 }
+
 button {
     font-size: 30px;
     border-radius: 10px;
     padding: 5px 40px;
     background-color: var(--greenColor);
 }
+
 .image-container img {
-    width: 25vw;
+    width: 35vw;
+}
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 50vw;
+    transform: translateX(-50%);
 }
 
-footer {
-    margin-top: 20vh;
-}
+
+

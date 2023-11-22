@@ -16,7 +16,9 @@
     <div class="product" th:each="p:${products}">
         <img th:src="@{/downloadPicture/{productId}(productId=${p.id})}" class="">
         <p th:text="${p.name}"></p>
-        <p th:text="${p.price}"></p>
+        <div class="price">
+            <p id="product-price" th:text="${p.price}"></p><span>лв.</span>
+        </div>
         <a th:href="@{/currentProduct/{id}(id=${p.id})}">
             <button type="submit">КУПИ</button>
         </a>

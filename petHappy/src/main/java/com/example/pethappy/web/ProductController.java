@@ -43,6 +43,10 @@ public class ProductController {
     public String currentProduct(Model model, @PathVariable("id") Long id) {
 
         ProductExportDto currentProduct = productService.getProductDtoById(id);
+        model.addAttribute("productId", currentProduct.getId());
+        model.addAttribute("productTitle", currentProduct.getName());
+        model.addAttribute("productDesc", currentProduct.getDescription());
+        model.addAttribute("productPrice", currentProduct.getPrice());
 
 
         return "currentProduct";

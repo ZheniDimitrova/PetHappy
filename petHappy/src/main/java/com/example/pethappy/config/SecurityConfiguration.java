@@ -27,7 +27,7 @@ public class SecurityConfiguration {
 
         httpSecurity.authorizeHttpRequests()
                 .requestMatchers( "/", "/static/**", "/images/**", "/css/**","/owners/login", "/owners/register", "/aboutUs", "/contacts", "/shop",
-                        "/products/DOG", "/products/CAT", "/products/OTHER").permitAll()
+                        "/products/{type}", "/downloadPicture/{productId}").permitAll()
                 .requestMatchers("/owners/admin").hasAuthority(UserRoleEnum.ADMINISTRATOR.name())
                 .requestMatchers("/owners/moderator").hasAuthority(UserRoleEnum.MODERATOR.name())
                 .anyRequest().authenticated()
