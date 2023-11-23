@@ -6,6 +6,9 @@
 
 body {
     overflow-y: visible;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-container {
@@ -59,14 +62,15 @@ button {
 }
 
 footer {
-    height: 24px;
-    width: 100%;
-    background-image: none;
-    background-repeat: repeat;
-    background-attachment: scroll;
-    background-position: 0% 0%;
-    position: fixed;
-    bottom: 5pt;
-    left: 675pt;
+    /*height: 24px;*/
+    /*width: 100%;*/
+    /*background-image: none;*/
+    /*background-repeat: repeat;*/
+    /*background-attachment: scroll;*/
+    /*background-position: 0% 0%;*/
+    /*position: absolute;*/
+    /*bottom: 5pt;*/
+    /*left: 675pt;*/
+    margin-top: auto;
 }
 

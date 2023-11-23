@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 public class Product extends BaseEntity {
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
-    private int count;
+    @Column(name="storage_count", nullable = false)
+    private int storageCount;
     @Column(columnDefinition = "TEXT")
     private String description;
     @Column(nullable = false)
@@ -41,14 +41,13 @@ public class Product extends BaseEntity {
         this.name = name;
     }
 
-    public int getCount() {
-        return count;
+    public int getStorageCount() {
+        return storageCount;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setStorageCount(int storageCount) {
+        this.storageCount = storageCount;
     }
-
 
     public String getDescription() {
         return description;

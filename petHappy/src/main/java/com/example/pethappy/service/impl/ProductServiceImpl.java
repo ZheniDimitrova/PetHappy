@@ -79,9 +79,11 @@ public class ProductServiceImpl implements ProductService {
                 petTypeEnum = PetTypeEnum.OTHER;
             }
             product.setForType(petTypeEnum);
-            product.setCount(random.nextInt(9) + 1);
+            product.setStorageCount(random.nextInt(9) + 1);
             productsRepository.save(product);
         }
+
+
 
     }
 
@@ -103,7 +105,7 @@ public class ProductServiceImpl implements ProductService {
 
 
         Product product = modelMapper.map(addProductBindingModel, Product.class);
-        product.setCount(product.getCount() + 1);
+        product.setStorageCount(product.getStorageCount() + 1);
         product.setForType(PetTypeEnum.valueOf(addProductBindingModel.getForType()));
 
         product.setPicture(pic);
