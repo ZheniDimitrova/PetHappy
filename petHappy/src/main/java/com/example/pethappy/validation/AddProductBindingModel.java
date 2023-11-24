@@ -17,7 +17,7 @@ public class AddProductBindingModel {
     @Size(min = 2, max = 20, message = "Моля, въведете името на продукта")
     private String productName;
 
-    @Size(min = 2, max = 200, message = "Моля, добавете описание на продукта")
+    @Size(min = 2, max = 2000, message = "Моля, добавете описание на продукта")
     private String description;
 
     @Positive(message = "Невалидна цена")

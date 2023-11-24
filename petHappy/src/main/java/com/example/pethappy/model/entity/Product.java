@@ -12,7 +12,7 @@ public class Product extends BaseEntity {
     private String name;
     @Column(name="storage_count", nullable = false)
     private int storageCount;
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
