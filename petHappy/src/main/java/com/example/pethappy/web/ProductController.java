@@ -5,6 +5,7 @@ import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.service.PictureService;
 import com.example.pethappy.service.ProductService;
+import com.example.pethappy.util.Cart;
 import com.example.pethappy.validation.AddProductBindingModel;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -22,10 +23,12 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
     private final PictureService pictureService;
+    private final Cart cart;
 
-    public ProductController(ProductService productService, PictureService pictureService) {
+    public ProductController(ProductService productService, PictureService pictureService, Cart cart) {
         this.productService = productService;
         this.pictureService = pictureService;
+        this.cart = cart;
     }
 
     @GetMapping("/products/{type}")
@@ -35,6 +38,7 @@ public class ProductController {
         List<ProductExportDto> productsList = productService.findByPetTypeEnum(petTypeEnum);
 
         model.addAttribute("products", productsList);
+        model.addAttribute("productsCount", cart.getProducts().size());
 
         return "products";
     }
@@ -47,6 +51,7 @@ public class ProductController {
         model.addAttribute("productTitle", currentProduct.getName());
         model.addAttribute("productDesc", currentProduct.getDescription());
         model.addAttribute("productPrice", currentProduct.getPrice());
+        model.addAttribute("productsCount", cart.getProducts().size());
 
 
         return "currentProduct";
@@ -71,6 +76,18 @@ public class ProductController {
         }
 
         return "redirect:/owners/admin";
+    }
+
+    @GetMapping("/addToCart/{id}")
+    public String addToCart(Model model, @PathVariable("id") Long id) {
+
+        Product product = productService.findProductById(id);
+
+        cart.getProducts().add(product);
+
+
+
+        return "redirect:/currentProduct/" + id;
     }
 
 }

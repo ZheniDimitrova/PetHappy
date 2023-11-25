@@ -12,6 +12,11 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
+<a>
+<span class="cart"><i class="fa-solid fa-cart-shopping"></i></span>
+<p class="products-in-cart" th:text="${productsCount}">0</p>
+</a>
+
 <article class="product-container">
     <div class="product" th:each="p:${products}">
         <img th:src="@{/downloadPicture/{productId}(productId=${p.id})}" class="">

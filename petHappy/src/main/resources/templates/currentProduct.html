@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pet Happy</title>
-   <link rel="stylesheet" th:href="@{/css/style.css}">
-  <link rel="stylesheet" th:href="@{/css/currentProduct.css}">
+    <meta charset="UTF-8">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/currentProduct.css}">
 </head>
 
 <body>
 
 <header th:replace="~{fragments/commons::nav}">
 </header>
+
+<a>
+<span class="cart"><i class="fa-solid fa-cart-shopping"></i></span>
+<p class="products-in-cart" th:text="${productsCount}">0</p>
+</a>
+
 <section class="container">
 
-  <article class="image-container">
-    <img th:src="@{/downloadPicture/{productId}(productId=${productId})}">
-  </article>
+    <article class="image-container">
+        <img th:src="@{/downloadPicture/{productId}(productId=${productId})}">
+    </article>
 
-  <article class="desc">
-    <h3 th:text="${productTitle}">Title</h3>
-    <p th:text="${productDesc}"></p>
-    <p th:text="${productPrice}">price</p>
+    <article class="desc">
+        <h3 th:text="${productTitle}">Title</h3>
+        <p id="content" th:text="${productDesc}"></p>
+        <p>
+            <span class="text">Брой: </span>
+            <span class="minus"> <i class="fa-solid fa-minus"></i> </span>
+            <span class="count">1</span>
+            <span class="plus"> <i class="fa-solid fa-plus"></i> </span>
+        </p>
+        <p>
+            <span class="text">Цена: </span>
+            <span th:text="${productPrice}">price</span>
+        </p>
+        <a th:href="@{/addToCart/{id}(id=${productId})}">
+            <button>Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
+        </a>
 
-    <button type="submit">Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
-
-  </article>
+    </article>
 
 </section>
 

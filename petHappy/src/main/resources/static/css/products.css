@@ -1,3 +1,4 @@
+@import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
 
 :root {
     --greenColor: #bfd798;
@@ -6,10 +7,27 @@
 
 body {
     overflow-y: visible;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
+
+.cart .fa-cart-shopping {
+    font-size: 50px;
+    position: absolute;
+    right: 240px;
+    top: 100px;
+}
+.products-in-cart {
+    border: solid black 1px;
+    border-radius: 50%;
+    padding: 5px 7px;
+    color: aliceblue;
+    background-color: var(--orangeColor);
+    font-size: 15px;
+    position: absolute;
+    right: 253px;
+    top: 90px;
+}
+
+
 
 .product-container {
     display: flex;
@@ -62,15 +80,7 @@ button {
 }
 
 footer {
-    /*height: 24px;*/
-    /*width: 100%;*/
-    /*background-image: none;*/
-    /*background-repeat: repeat;*/
-    /*background-attachment: scroll;*/
-    /*background-position: 0% 0%;*/
-    /*position: absolute;*/
-    /*bottom: 5pt;*/
-    /*left: 675pt;*/
-    margin-top: auto;
+    position: relative;
+    margin-top: 50px;
 }
 

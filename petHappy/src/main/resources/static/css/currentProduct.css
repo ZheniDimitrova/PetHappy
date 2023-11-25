@@ -1,4 +1,6 @@
 @import url('https://use.fontawesome.com/releases/v6.4.2/css/all.css');
+@import url('https://fontawesome.com/icons/minus?f=classic&s=solid');
+@import url('https://fontawesome.com/icons/plus?f=classic&s=solid');
 
 :root {
     --greenColor: #bfd798;
@@ -7,6 +9,25 @@
 
 body {
     overflow-y: visible;
+}
+
+.cart .fa-cart-shopping {
+    font-size: 50px;
+    position: absolute;
+    right: 240px;
+    top: 100px;
+}
+
+.products-in-cart {
+    border: solid black 1px;
+    border-radius: 50%;
+    padding: 5px 7px;
+    color: aliceblue;
+    background-color: var(--orangeColor);
+    font-size: 15px;
+    position: absolute;
+    right: 253px;
+    top: 90px;
 }
 
 .container {
@@ -22,6 +43,28 @@ body {
     text-align: center;
     padding: 20px;
 }
+#content {
+    text-align: justify;
+}
+
+.count {
+    border: solid black 1px;
+    font-size: 25px;
+    border-radius: 30%;
+    padding: 2px 20px;
+    background-color: var(--greenColor)
+
+}
+.text {
+    color: darkgrey;
+    font-size: 25px;
+}
+
+.minus, .plus {
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
 
 button {
     font-size: 30px;
@@ -33,11 +76,10 @@ button {
 .image-container img {
     width: 35vw;
 }
+
 footer {
-    position: absolute;
-    bottom: 15px;
-    left: 50vw;
-    transform: translateX(-50%);
+    position: relative;
+    margin-top: 50px;
 }
 
 

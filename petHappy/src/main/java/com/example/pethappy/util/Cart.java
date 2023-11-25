@@ -1,6 +1,7 @@
 package com.example.pethappy.util;
 
 import com.example.pethappy.model.entity.Order;
+import com.example.pethappy.model.entity.Product;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -11,17 +12,18 @@ import java.util.List;
 @SessionScope
 public class Cart {
 
-    private List<Order> orders;
+    private List<Product> products;
 
     public Cart() {
-        this.orders = new ArrayList<>();
+        this.products = new ArrayList<>();
     }
 
-    public List<Order> getOrders() {
-        return orders;
+
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
