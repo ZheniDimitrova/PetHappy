@@ -12,7 +12,7 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
-<a>
+<a th:href="@{/cart}">
 <span class="cart"><i class="fa-solid fa-cart-shopping"></i></span>
 <p class="products-in-cart" th:text="${productsCount}">0</p>
 </a>

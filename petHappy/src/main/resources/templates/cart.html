@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Pet Happy</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-  <link rel="stylesheet" th:href="@{/css/cart.css}">
+    <meta charset="UTF-8">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/cart.css}">
 </head>
 
 <body>
 
 <header th:replace="~{fragments/commons::nav}">
 </header>
+
+<div class="cart-container">
+    <div class="product-title">
+        <span>Продукт:</span>
+        <span>Име:</span>
+        <span>Цена:</span>
+        <span>Брой:</span>
+        <span>Общо:</span>
+    </div>
+
+    <div class="product" th:each="p:${productsList}">
+        <img th:src="@{/downloadPicture/{productId}(productId=${p.id})}">
+        <span th:text="${p.name}">Име:</span>
+        <span th:text="${p.price}">Цена:</span>
+        <span th:text="${p.storageCount}">Брой:</span>
+        <span>Общо:</span>
+    </div>
+     
+    
+    <div class="final-price">
+
+        <span>Обща сума:</span>
+        <span>0.00 лв.</span>
+
+
+        <button type="submit">Потвърди поръчката</button>
+    </div>
+</div>
 
 </body>
 </html>

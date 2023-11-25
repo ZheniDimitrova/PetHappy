@@ -79,7 +79,7 @@ public class ProductController {
     }
 
     @GetMapping("/addToCart/{id}")
-    public String addToCart(Model model, @PathVariable("id") Long id) {
+    public String addToCart(@PathVariable("id") Long id) {
 
         Product product = productService.findProductById(id);
 
@@ -88,6 +88,15 @@ public class ProductController {
 
 
         return "redirect:/currentProduct/" + id;
+    }
+
+    @GetMapping("/cart")
+    public String viewCart(Model model) {
+
+        List<Product> productList = cart.getProducts();
+        model.addAttribute("productsList", productList);
+
+        return "cart";
     }
 
 }
