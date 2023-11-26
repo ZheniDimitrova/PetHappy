@@ -7,6 +7,7 @@ import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.validation.AddProductBindingModel;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 public interface ProductService {
@@ -24,5 +25,6 @@ public interface ProductService {
 
     Product findProductById(Long id);
 
+    double sumFinalPrice(List<ProductExportDto> productList) throws ParseException;
 }
 

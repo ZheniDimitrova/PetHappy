@@ -50,9 +50,9 @@ body {
 .count {
     border: solid black 1px;
     font-size: 25px;
-    border-radius: 30%;
-    padding: 2px 20px;
-    background-color: var(--greenColor)
+    padding: 5px 10px;
+    width: 30px;
+    background-color: var(--greenColor);
 
 }
 .text {
@@ -60,11 +60,6 @@ body {
     font-size: 25px;
 }
 
-.minus, .plus {
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-}
 
 button {
     font-size: 30px;

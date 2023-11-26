@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -118,5 +120,21 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findProductById(Long id) {
         return productsRepository.findById(id).get();
+    }
+
+    @Override
+    public double sumFinalPrice(List<ProductExportDto> productList) throws ParseException {
+
+        double finalPrice = 0;
+
+        for (ProductExportDto exportDto : productList) {
+            finalPrice += exportDto.getPrice().doubleValue() * exportDto.getCount();
+        }
+//        DecimalFormat df = new DecimalFormat("#.##");
+//        String f = df.format(finalPrice);
+//
+//        return Double.valueOf((Double) df.parse(f));
+        return Math.floor(finalPrice * 100)/100.00;
+
     }
 }

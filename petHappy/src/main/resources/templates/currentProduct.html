@@ -24,22 +24,22 @@
     </article>
 
     <article class="desc">
+        <form th:action="@{/addToCart/{id}(id=${productId})}" th:method="post">
         <h3 th:text="${productTitle}">Title</h3>
         <p id="content" th:text="${productDesc}"></p>
         <p>
             <span class="text">Брой: </span>
-            <span class="minus"> <i class="fa-solid fa-minus"></i> </span>
-            <span class="count">1</span>
-            <span class="plus"> <i class="fa-solid fa-plus"></i> </span>
+            <input class="count" name="count" type="number" value="1" >
         </p>
         <p>
             <span class="text">Цена: </span>
             <span th:text="${productPrice}">price</span>
+            <span>лв.</span>
         </p>
-        <a th:href="@{/addToCart/{id}(id=${productId})}">
-            <button>Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
-        </a>
 
+            <button type="submit">Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
+
+        </form>
     </article>
 
 </section>

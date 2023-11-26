@@ -11,12 +11,11 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 @Controller
@@ -78,10 +77,11 @@ public class ProductController {
         return "redirect:/owners/admin";
     }
 
-    @GetMapping("/addToCart/{id}")
-    public String addToCart(@PathVariable("id") Long id) {
+    @PostMapping("/addToCart/{id}")
+    public String addToCart(@PathVariable("id") Long id, @RequestParam int count) {
 
-        Product product = productService.findProductById(id);
+        ProductExportDto product = productService.getProductDtoById(id);
+        product.setCount(count);
 
         cart.getProducts().add(product);
 
@@ -91,10 +91,13 @@ public class ProductController {
     }
 
     @GetMapping("/cart")
-    public String viewCart(Model model) {
+    public String viewCart(Model model) throws ParseException {
 
-        List<Product> productList = cart.getProducts();
+        List<ProductExportDto> productList = cart.getProducts();
+        double finalPrice = productService.sumFinalPrice(productList);
+
         model.addAttribute("productsList", productList);
+        model.addAttribute("finalPrice", finalPrice);
 
         return "cart";
     }
