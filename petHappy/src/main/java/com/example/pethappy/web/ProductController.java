@@ -90,16 +90,6 @@ public class ProductController {
         return "redirect:/currentProduct/" + id;
     }
 
-    @GetMapping("/cart")
-    public String viewCart(Model model) throws ParseException {
 
-        List<ProductExportDto> productList = cart.getProducts();
-        double finalPrice = productService.sumFinalPrice(productList);
-
-        model.addAttribute("productsList", productList);
-        model.addAttribute("finalPrice", finalPrice);
-
-        return "cart";
-    }
 
 }

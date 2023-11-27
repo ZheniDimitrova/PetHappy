@@ -27,13 +27,13 @@
     </thead>
 
     <tbody>
-    <tr class="product" th:each="p:${productsList}">
+    <tr class="product" th:each="p, iterator :${productsList}">
         <td><img th:src="@{/downloadPicture/{productId}(productId=${p.id})}"></td>
         <td th:text="${p.name}"></td>
         <td th:text="${p.price}"></td>
         <td th:text="${p.count}"></td>
         <td th:text="${p.price * p.count}"></td>
-        <td id="x">X</td>
+        <td id="x"><a th:href="@{/removeFromCart/{index}(index=${iterator.index})}">X</a></td>
     </tr>
     </tbody>
 </table>
@@ -49,6 +49,8 @@
 </div>
 
 </div>
+
+
 
 <footer th:replace="~{fragments/commons::footer}"></footer>
 </body>

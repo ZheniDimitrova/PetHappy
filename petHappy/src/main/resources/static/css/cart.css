@@ -56,8 +56,9 @@ img {
     color: var(--orangeColor);
     margin-top: 100px;
 }
-.product #x {
+.product #x a{
     color: red;
+    text-decoration: none;
 }
 
 button {
