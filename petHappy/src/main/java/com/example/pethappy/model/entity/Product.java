@@ -22,8 +22,6 @@ public class Product extends BaseEntity {
     @OneToOne
     private Picture picture;
 
-
-
     @ManyToOne
     private Category category;
     @ManyToOne

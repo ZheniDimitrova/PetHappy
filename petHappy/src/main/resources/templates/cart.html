@@ -38,6 +38,43 @@
     </tbody>
 </table>
 
+    <form th:method="post" th:action="@{/makeOrder}" th:object="${orderBindingModel}" class="order-info">
+        <div class="order">
+            <input type="text" th:field="*{firstName}" name="firstName" id="first-name" required
+                   placeholder="  Име" th:errorclass="input-error">
+            <small th:errors="*{firstName}" class="error-message"></small>
+        </div>
+
+        <div class="order">
+            <input type="text" th:field="*{lastName}" name="lastName" id="last-name" required
+                   placeholder="  Фамилия" th:errorclass="input-error">
+            <small th:errors="*{lastName}" class="error-message"></small>
+        </div>
+
+        <div class="order">
+            <input type="text" th:field="*{town}" name="town" id="town" required
+                   placeholder="  Град" th:errorclass="input-error">
+            <small th:errors="*{town}" class="error-message"></small>
+        </div>
+        <div class="order">
+            <input type="text" th:field="*{address}" name="address" id="address" required
+                   placeholder="  Адрес за доставка" th:errorclass="input-error">
+            <small th:errors="*{address}" class="error-message"></small>
+        </div>
+
+        <div class="order">
+            <input type="tel" th:field="*{phoneNumber}" name="phoneNumber" id="phone" required
+                   placeholder="  Телефон" th:errorclass="input-error">
+            <small th:errors="*{phoneNumber}" class="error-message"></small>
+        </div>
+
+        <div class="order">
+            <input type="email" th:field="*{email}" name="email" id="reg-email" required
+                   placeholder="  email" th:errorclass="input-error">
+            <small th:errors="*{email}" class="error-message"></small>
+        </div>
+
+
 
 <div class="final-price">
 
@@ -47,7 +84,7 @@
 
     <button type="submit">Потвърди поръчката</button>
 </div>
-
+    </form>
 </div>
 
 

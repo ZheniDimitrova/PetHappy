@@ -13,10 +13,9 @@ public class Order extends BaseEntity {
     private String phoneNumber;
     @ManyToOne
     private Owner owner;
-    @ManyToOne
-    private Product product;
-    @Column(nullable = false)
-    private int count;
+    @OneToMany
+    private List<OrderedProduct> orderedProducts;
+
 
 
     public Order() {
@@ -46,19 +45,5 @@ public class Order extends BaseEntity {
         this.owner = owner;
     }
 
-    public Product getProduct() {
-        return product;
-    }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
 }

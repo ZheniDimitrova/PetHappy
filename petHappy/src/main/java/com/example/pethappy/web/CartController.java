@@ -3,6 +3,7 @@ package com.example.pethappy.web;
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.service.ProductService;
 import com.example.pethappy.util.Cart;
+import com.example.pethappy.validation.OrderBindingModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ public class CartController {
 
         model.addAttribute("productsList", productList);
         model.addAttribute("finalPrice", finalPrice);
+        model.addAttribute("orderBindingModel", new OrderBindingModel());
 
         return "cart";
     }
@@ -40,4 +42,8 @@ public class CartController {
         cart.getProducts().remove(index);
         return "redirect:/cart";
     }
+
+
+
+
 }

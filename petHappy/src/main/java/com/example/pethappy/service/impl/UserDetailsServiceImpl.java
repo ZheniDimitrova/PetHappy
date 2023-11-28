@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Set<UserRole> userRoles) {
-        return userRoles.stream().map(userRole -> getAuthority(userRole)).collect(Collectors.toList());
+        return userRoles.stream().map(this::getAuthority).collect(Collectors.toList());
     }
 
     private GrantedAuthority getAuthority(UserRole userRole) {

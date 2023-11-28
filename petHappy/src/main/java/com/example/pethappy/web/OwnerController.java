@@ -87,4 +87,11 @@ public class OwnerController {
         return "moderator";
     }
 
+    @GetMapping("/owners/login-error")
+    public String errorCredentials(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("invalidCredentials", true);
+
+        return "redirect:/owners/login";
+    }
+
 }

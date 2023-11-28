@@ -54,11 +54,41 @@ img {
     font-size: 42px;
     font-weight: bold;
     color: var(--orangeColor);
-    margin-top: 100px;
+    /*margin-top: 100px;*/
 }
 .product #x a{
     color: red;
     text-decoration: none;
+}
+
+.order-info{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: bold;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    color: var(--greenColor);
+    gap: 20px;
+    /*border: solid var(--greenColor) 2px;*/
+    height: 75vh;
+    padding: 20px;
+    /*background-color: var(--greenColor);*/
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-info .order input {
+    width: 550px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    border: solid black 3px;
 }
 
 button {
