@@ -16,6 +16,14 @@ h3 {
     color: black;
 
 }
+.invalid {
+    color: red;
+    font-size: 22px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
 
 .form{
     display: flex;
@@ -30,6 +38,7 @@ h3 {
     height: 70vh;
     padding: 20px;
     background-color: var(--greenColor);
+    align-items: center;
 }
 
 .form div{

@@ -17,7 +17,7 @@
 <section class="form">
 
     <h3>Вход</h3>
-    <span th:if="${invalidCredentials}">Грешно име и/или парола! Ако нямате профил, моля, регистрирайте се!</span>
+    <span class="invalid" th:if="${invalidCredentials}">Грешно име и/или парола! Ако нямате профил, моля, регистрирайте се!</span>
 
     <form th:method="post" th:action="@{/owners/login}">
     <div class="username">
