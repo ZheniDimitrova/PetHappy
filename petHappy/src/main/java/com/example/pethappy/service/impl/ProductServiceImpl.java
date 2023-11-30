@@ -107,7 +107,7 @@ public class ProductServiceImpl implements ProductService {
 
 
         Product product = modelMapper.map(addProductBindingModel, Product.class);
-        product.setStorageCount(product.getStorageCount() + 1);
+        product.setStorageCount(product.getStorageCount());
         product.setForType(PetTypeEnum.valueOf(addProductBindingModel.getForType()));
 
         product.setPicture(pic);

@@ -63,5 +63,10 @@ public class OwnerServiceImpl implements OwnerService {
         ownerRepository.save(moderator);
     }
 
+    @Override
+    public Owner findOwnerByUsername(String username) {
+        return ownerRepository.findByUsername(username);
+    }
+
 
 }

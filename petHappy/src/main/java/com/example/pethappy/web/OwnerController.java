@@ -1,9 +1,13 @@
 package com.example.pethappy.web;
 
 import com.example.pethappy.service.OwnerService;
+import com.example.pethappy.validation.AddProductBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -76,7 +80,10 @@ public class OwnerController {
     }
 
     @GetMapping("/admin")
-    public String admin() {
+    public String admin(Model model) {
+        if (!model.containsAttribute("addProductBindingModel")){
+            model.addAttribute("addProductBindingModel",new AddProductBindingModel());
+        }
 
         return "admin";
     }
@@ -93,5 +100,7 @@ public class OwnerController {
 
         return "redirect:/owners/login";
     }
+
+
 
 }

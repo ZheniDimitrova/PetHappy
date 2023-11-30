@@ -40,14 +40,14 @@
 
     <form th:method="post" th:action="@{/makeOrder}" th:object="${orderBindingModel}" class="order-info">
         <div class="order">
-            <input type="text" th:field="*{firstName}" name="firstName" id="first-name" required
-                   placeholder="  Име" th:errorclass="input-error">
+            <input th:value="${ownerFirstName}" type="text" th:field="*{firstName}" name="firstName" id="first-name"
+                    readonly>
             <small th:errors="*{firstName}" class="error-message"></small>
         </div>
 
         <div class="order">
-            <input type="text" th:field="*{lastName}" name="lastName" id="last-name" required
-                   placeholder="  Фамилия" th:errorclass="input-error">
+            <input  type="text" th:field="*{lastName}" name="lastName" id="last-name"
+                   th:value="${ownerLastName}"  readonly>
             <small th:errors="*{lastName}" class="error-message"></small>
         </div>
 
@@ -69,8 +69,8 @@
         </div>
 
         <div class="order">
-            <input type="email" th:field="*{email}" name="email" id="reg-email" required
-                   placeholder="  email" th:errorclass="input-error">
+            <input th:value="${ownerEmail}" type="email" th:field="*{email}" name="email" id="reg-email"
+                    readonly>
             <small th:errors="*{email}" class="error-message"></small>
         </div>
 

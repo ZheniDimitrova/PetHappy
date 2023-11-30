@@ -1,9 +1,5 @@
 package com.example.pethappy.validation;
-
-import com.example.pethappy.model.entity.Picture;
-import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +18,8 @@ public class AddProductBindingModel {
 
     @Positive(message = "Невалидна цена")
     private BigDecimal price;
+    @Positive(message = "Моля, добавете брой на продукта")
+    private int storageCount;
 
     private MultipartFile picture;
 
@@ -67,5 +65,13 @@ public class AddProductBindingModel {
 
     public void setPicture(MultipartFile picture) {
         this.picture = picture;
+    }
+
+    public int getStorageCount() {
+        return storageCount;
+    }
+
+    public void setStorageCount(int storageCount) {
+        this.storageCount = storageCount;
     }
 }

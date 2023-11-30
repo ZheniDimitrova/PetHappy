@@ -1,7 +1,6 @@
 package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
-import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.service.PictureService;
 import com.example.pethappy.service.ProductService;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.text.ParseException;
+
 import java.util.List;
 
 @Controller
@@ -62,9 +61,9 @@ public class ProductController {
                                     RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            //redirectAttributes.addFlashAttribute("addProductBindingModel", addProductBindingModel);
-            //redirectAttributes.addAttribute("org.springframework.validation.BindingResult.addProductBindingModel", bindingResult);
-            bindingResult.getAllErrors().stream().forEach(e -> System.out.println(e.getDefaultMessage()));
+           redirectAttributes.addFlashAttribute("addProductBindingModel", addProductBindingModel);
+           redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addProductBindingModel", bindingResult);
+
 
         } else {
             try {

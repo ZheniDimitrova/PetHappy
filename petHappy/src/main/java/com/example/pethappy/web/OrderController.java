@@ -3,6 +3,8 @@ package com.example.pethappy.web;
 import com.example.pethappy.service.OrderService;
 import com.example.pethappy.validation.OrderBindingModel;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +21,7 @@ public class OrderController {
 
     @PostMapping("/makeOrder")
     public String confirmOrder(@Valid OrderBindingModel orderBindingModel, BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes) {
+                               RedirectAttributes redirectAttributes, @AuthenticationPrincipal UserDetails userDetails) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("orderBindingModel", orderBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.orderBindingModel", bindingResult);
@@ -27,7 +29,8 @@ public class OrderController {
             return "redirect:/cart";
         }
 
-        orderService.addNewOrder(orderBindingModel);
+
+        orderService.addNewOrder(orderBindingModel, userDetails.getUsername());
 
         return "shop";
 
