@@ -8,6 +8,11 @@ import com.example.pethappy.repository.UserRoleRepository;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +23,14 @@ public class OwnerServiceImpl implements OwnerService {
     private final UserRoleRepository userRoleRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
+    private final UserDetailsService userDetailsService;
 
-    public OwnerServiceImpl(OwnerRepository ownerRepository, UserRoleRepository userRoleRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder) {
+    public OwnerServiceImpl(OwnerRepository ownerRepository, UserRoleRepository userRoleRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
         this.ownerRepository = ownerRepository;
         this.userRoleRepository = userRoleRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
+        this.userDetailsService = userDetailsService;
     }
 
     @Override
@@ -66,6 +73,15 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public Owner findOwnerByUsername(String username) {
         return ownerRepository.findByUsername(username);
+    }
+
+    @Override
+    public void loginOwner(String username) {
+
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
 

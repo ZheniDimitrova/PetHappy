@@ -3,9 +3,11 @@ package com.example.pethappy.web;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.AddProductBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,8 +23,10 @@ public class OwnerController {
 
     private final OwnerService ownerService;
 
+
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;
+
     }
 
     @GetMapping()
@@ -49,7 +53,7 @@ public class OwnerController {
 
     @PostMapping("/register")
     public String confirmRegister(@Valid OwnerRegisterBindingModel ownerRegisterBindingModel, BindingResult bindingResult,
-                                  RedirectAttributes redirectAttributes) {
+                                  RedirectAttributes redirectAttributes, HttpSession httpSession) {
         if (bindingResult.hasErrors() || !ownerRegisterBindingModel.getPassword().equals(ownerRegisterBindingModel.getConfirmPassword())) {
             redirectAttributes.addFlashAttribute("ownerRegisterBindingModel", ownerRegisterBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.ownerRegisterBindingModel", bindingResult);
@@ -58,8 +62,10 @@ public class OwnerController {
         }
 
         ownerService.registerOwner(ownerRegisterBindingModel);
+        ownerService.loginOwner(ownerRegisterBindingModel.getUsername());
+        httpSession.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 
-        return "redirect:index";
+        return "redirect:/";
 
     }
 

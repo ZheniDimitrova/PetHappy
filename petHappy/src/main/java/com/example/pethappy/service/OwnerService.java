@@ -9,4 +9,6 @@ public interface OwnerService {
     void initRegisterOwner();
 
     Owner findOwnerByUsername(String username);
+
+    void loginOwner(String username);
 }

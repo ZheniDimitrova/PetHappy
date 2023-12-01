@@ -32,7 +32,7 @@
         <td th:text="${p.name}"></td>
         <td th:text="${p.price}"></td>
         <td th:text="${p.count}"></td>
-        <td th:text="${p.price * p.count}"></td>
+        <td th:text="${#numbers.formatDecimal(p.price * p.count, 1,2,'POINT')}"></td>
         <td id="x"><a th:href="@{/removeFromCart/{index}(index=${iterator.index})}">X</a></td>
     </tr>
     </tbody>
@@ -40,13 +40,13 @@
 
     <form th:method="post" th:action="@{/makeOrder}" th:object="${orderBindingModel}" class="order-info">
         <div class="order">
-            <input th:value="${ownerFirstName}" type="text" th:field="*{firstName}" name="firstName" id="first-name"
-                    readonly>
+            <input type="text" name="firstName" id="first-name"
+                   th:value="${ownerFirstName}" readonly>
             <small th:errors="*{firstName}" class="error-message"></small>
         </div>
 
         <div class="order">
-            <input  type="text" th:field="*{lastName}" name="lastName" id="last-name"
+            <input  type="text" name="lastName" id="last-name"
                    th:value="${ownerLastName}"  readonly>
             <small th:errors="*{lastName}" class="error-message"></small>
         </div>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="order">
-            <input th:value="${ownerEmail}" type="email" th:field="*{email}" name="email" id="reg-email"
+            <input th:value="${ownerEmail}" type="email" name="email" id="reg-email"
                     readonly>
             <small th:errors="*{email}" class="error-message"></small>
         </div>
@@ -79,7 +79,7 @@
 <div class="final-price">
 
     <span>Обща сума:</span>
-    <span><span th:text="${finalPrice}"></span>лв.</span>
+    <span><span th:text="${#numbers.formatDecimal(finalPrice,1,2,'POINT')}"></span>лв.</span>
 
 
     <button type="submit">Потвърди поръчката</button>
