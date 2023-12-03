@@ -123,17 +123,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public double sumFinalPrice(List<ProductExportDto> productList) throws ParseException {
+    public double sumFinalPrice(List<ProductExportDto> productList) {
 
         double finalPrice = 0;
 
         for (ProductExportDto exportDto : productList) {
             finalPrice += exportDto.getPrice().doubleValue() * exportDto.getCount();
         }
-//        DecimalFormat df = new DecimalFormat("#.##");
-//        String f = df.format(finalPrice);
-//
-//        return Double.valueOf((Double) df.parse(f));
+
         return Math.floor(finalPrice * 100)/100.00;
 
     }

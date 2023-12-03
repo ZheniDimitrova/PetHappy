@@ -11,6 +11,7 @@ public class ProductExportDto {
     private BigDecimal price;
 
     private int count;
+    private int storageCount;
 
     public ProductExportDto() {
     }
@@ -53,5 +54,13 @@ public class ProductExportDto {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public int getStorageCount() {
+        return storageCount;
+    }
+
+    public void setStorageCount(int storageCount) {
+        this.storageCount = storageCount;
     }
 }

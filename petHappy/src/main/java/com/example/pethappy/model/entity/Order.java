@@ -2,6 +2,7 @@ package com.example.pethappy.model.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -11,10 +12,14 @@ public class Order extends BaseEntity {
     private String address;
     @Column(nullable = false)
     private String phoneNumber;
+    @Column(name = "created_on", nullable = false)
+    private LocalDateTime createdOn;
     @ManyToOne
     private Owner owner;
     @OneToMany
     private List<OrderedProduct> orderedProducts;
+
+
 
 
 
@@ -35,6 +40,22 @@ public class Order extends BaseEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public LocalDateTime getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(LocalDateTime createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public List<OrderedProduct> getOrderedProducts() {
+        return orderedProducts;
+    }
+
+    public void setOrderedProducts(List<OrderedProduct> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
 
     public Owner getOwner() {

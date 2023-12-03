@@ -107,6 +107,12 @@ public class OwnerController {
         return "redirect:/owners/login";
     }
 
+    @GetMapping("/advice")
+    public String advice() {
+
+        return "advice";
+    }
+
 
 
 }

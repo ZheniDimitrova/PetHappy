@@ -50,6 +50,7 @@ public class ProductController {
         model.addAttribute("productDesc", currentProduct.getDescription());
         model.addAttribute("productPrice", currentProduct.getPrice());
         model.addAttribute("productsCount", cart.getProducts().size());
+        model.addAttribute("maxProductCount", currentProduct.getStorageCount());
 
 
         return "currentProduct";
