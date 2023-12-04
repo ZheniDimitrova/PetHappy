@@ -1,0 +1,73 @@
+@media screen and (max-width: 600px) {
+    body{
+        overflow-y: visible;
+    }
+
+    .about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        height: 143vh;
+        padding-top: 20px;
+
+    }
+
+    .image img {
+        display: flex;
+        width: 40vh;
+
+    }
+    .info h2{
+        text-align: center;
+    }
+
+    p {
+        font-size: 20px;
+        text-align: justify;
+        margin: 28px;
+    }
+
+}
+
+
+
+
+@media all and (max-width: 400px) {
+
+    body{
+        overflow-y: visible;
+    }
+
+    .about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        height: 276vh;
+        padding-top: 20px;
+
+    }
+
+    .image img {
+        display: flex;
+        width: 30vh;
+        margin-left: 20vw;
+    }
+
+    div h2 {
+        text-align: center;
+        font-size: 40px;
+
+    }
+
+    p {
+        font-size: 26px;
+        text-align: justify;
+        margin: 30px;
+    }
+}
+
+
+
+

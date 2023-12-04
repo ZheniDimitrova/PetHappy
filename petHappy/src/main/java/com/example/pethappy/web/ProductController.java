@@ -1,6 +1,8 @@
 package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
+import com.example.pethappy.model.entity.Picture;
+import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
 import com.example.pethappy.service.PictureService;
 import com.example.pethappy.service.ProductService;
@@ -68,7 +70,9 @@ public class ProductController {
 
         } else {
             try {
-                productService.addProduct(addProductBindingModel);
+                Picture picture = pictureService.uploadPicture(addProductBindingModel.getPicture());
+                Product product = productService.addProduct(addProductBindingModel, picture);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

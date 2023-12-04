@@ -72,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
     public void clearOrder() {
 
         for (Order order : orderRepository.findAll()) {
-            if (order.getCreatedOn().isBefore(order.getCreatedOn().plusDays(7))) {
+            if (order.getCreatedOn().isAfter(order.getCreatedOn().plusDays(7))) {
                 orderRepository.delete(order);
             }
         }

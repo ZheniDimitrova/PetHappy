@@ -1,6 +1,7 @@
 package com.example.pethappy.service;
 
 import com.example.pethappy.model.dto.ProductExportDto;
+import com.example.pethappy.model.entity.Picture;
 import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.model.entity.enums.CategoryNameEnum;
 import com.example.pethappy.model.entity.enums.PetTypeEnum;
@@ -20,7 +21,7 @@ public interface ProductService {
 
     ProductExportDto getProductDtoById(Long id);
 
-    Product addProduct(AddProductBindingModel addProductBindingModel) throws IOException;
+    Product addProduct(AddProductBindingModel addProductBindingModel, Picture picture) throws IOException;
 
 
     Product findProductById(Long id);

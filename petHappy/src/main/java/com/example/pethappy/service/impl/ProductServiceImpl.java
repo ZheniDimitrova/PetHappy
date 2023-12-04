@@ -13,12 +13,9 @@ import com.example.pethappy.service.ProductService;
 import com.example.pethappy.validation.AddProductBindingModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.ParseException;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -98,19 +95,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product addProduct(AddProductBindingModel addProductBindingModel) throws IOException {
-
-        MultipartFile picture = addProductBindingModel.getPicture();
-
-        Picture pic = new Picture(picture.getContentType(), picture.getName(), picture.getBytes());
-        pictureRepository.save(pic);
+    public Product addProduct(AddProductBindingModel addProductBindingModel, Picture picture) throws IOException {
 
 
         Product product = modelMapper.map(addProductBindingModel, Product.class);
         product.setStorageCount(product.getStorageCount());
         product.setForType(PetTypeEnum.valueOf(addProductBindingModel.getForType()));
 
-        product.setPicture(pic);
+        product.setPicture(picture);
 
         productsRepository.save(product);
 

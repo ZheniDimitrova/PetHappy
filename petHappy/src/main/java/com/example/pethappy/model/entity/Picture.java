@@ -12,8 +12,6 @@ public class Picture extends BaseEntity {
     @Lob
     @Column(length = Integer.MAX_VALUE)
     private byte[] bytes;
-    @OneToOne(cascade = CascadeType.MERGE, mappedBy = "picture")
-    private Product product;
 
     public Picture(String pictureType, String pictureName, byte[] bytes) {
         this.pictureType = pictureType;
@@ -48,13 +46,6 @@ public class Picture extends BaseEntity {
         this.bytes = bytes;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 }
 
 
