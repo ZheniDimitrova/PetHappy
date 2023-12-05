@@ -12,12 +12,12 @@ import java.io.IOException;
 @Service
 public class PictureServiceImpl implements PictureService {
     private final PictureRepository pictureRepository;
-    private final ProductRepository productRepository;
 
 
-    public PictureServiceImpl(PictureRepository pictureRepository, ProductRepository productRepository) {
+
+    public PictureServiceImpl(PictureRepository pictureRepository) {
         this.pictureRepository = pictureRepository;
-        this.productRepository = productRepository;
+
     }
 
 

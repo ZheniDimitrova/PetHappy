@@ -26,14 +26,11 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productsRepository;
     private final CategoryRepository categoryRepository;
-
-    private final PictureRepository pictureRepository;
     private final ModelMapper modelMapper;
 
-    public ProductServiceImpl(ProductRepository productsRepository, CategoryRepository categoryRepository, PictureRepository pictureRepository, ModelMapper modelMapper) {
+    public ProductServiceImpl(ProductRepository productsRepository, CategoryRepository categoryRepository, ModelMapper modelMapper) {
         this.productsRepository = productsRepository;
         this.categoryRepository = categoryRepository;
-        this.pictureRepository = pictureRepository;
         this.modelMapper = modelMapper;
     }
 
@@ -95,7 +92,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product addProduct(AddProductBindingModel addProductBindingModel, Picture picture) throws IOException {
+    public Product addProduct(AddProductBindingModel addProductBindingModel, Picture picture) {
 
 
         Product product = modelMapper.map(addProductBindingModel, Product.class);
