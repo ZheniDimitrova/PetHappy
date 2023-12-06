@@ -80,7 +80,6 @@ public class OwnerController {
     @PostMapping("/login")
     public String confirmLogin() {
 
-
         return "redirect:index";
 
     }

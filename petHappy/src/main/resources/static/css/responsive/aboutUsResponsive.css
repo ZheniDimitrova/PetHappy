@@ -1,3 +1,43 @@
+
+@media screen and (max-width: 1200px) {
+
+    body{
+        overflow-y: visible;
+    }
+
+    .about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        height: 170vh;
+        padding-top: 30px;
+    }
+
+    .image img {
+        display: flex;
+        width: 60vh;
+
+    }
+    .info h2{
+        text-align: center;
+    }
+
+    p {
+        font-size: 30px;
+        text-align: justify;
+        margin: 28px;
+    }
+    footer{
+        position: relative;
+        margin-top: 20px;
+    }
+
+}
+
+
+
 @media screen and (max-width: 600px) {
     body{
         overflow-y: visible;

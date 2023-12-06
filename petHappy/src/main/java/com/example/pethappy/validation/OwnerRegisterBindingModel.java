@@ -20,7 +20,14 @@ public class OwnerRegisterBindingModel {
     @Size(min = 3, max = 20)
     private String confirmPassword;
 
-
+    public OwnerRegisterBindingModel(String username, String firstName, String lastName, String email, String password, String confirmPassword) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
 
     public OwnerRegisterBindingModel() {
     }
