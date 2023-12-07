@@ -23,6 +23,14 @@ public class AddProductBindingModel {
 
     private MultipartFile picture;
 
+    public AddProductBindingModel(String forType, String productName, String description, BigDecimal price, int storageCount) {
+        this.forType = forType;
+        this.productName = productName;
+        this.description = description;
+        this.price = price;
+        this.storageCount = storageCount;
+    }
+
     public AddProductBindingModel() {
 
     }

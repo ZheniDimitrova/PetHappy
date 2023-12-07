@@ -2,6 +2,7 @@ package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.service.OwnerService;
+import com.example.pethappy.service.ProductService;
 import com.example.pethappy.util.Cart;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import org.junit.jupiter.api.BeforeAll;
@@ -32,6 +33,7 @@ public class CartControllerTests {
     @Autowired
     private OwnerService ownerService;
 
+
     @BeforeAll
     public void setUp() {
         cart.getProducts().add(new ProductExportDto());
@@ -50,14 +52,6 @@ public class CartControllerTests {
                 .andExpect(MockMvcResultMatchers.model().attributeExists("productsList", "finalPrice", "orderBindingModel", "ownerFirstName", "ownerLastName", "ownerEmail"))
                 .andExpect(MockMvcResultMatchers.view().name("cart"));
     }
-
-//    @Test
-//    @WithMockUser(username = "Zheni")
-//    public void testRemoveFromCart() throws Exception {
-//        mockMvc.perform(MockMvcRequestBuilders.get("/removeFromCart/2"))
-//                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/cart"));
-//    }
 
 
 }

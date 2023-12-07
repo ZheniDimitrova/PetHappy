@@ -5,6 +5,7 @@ import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -34,13 +35,13 @@ public class OwnerControllerTests {
     @Test
     public void confirmRegister() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/owners/register")
-                .with(csrf())
-                .param("username", "Geri")
-                .param("firstName", "Gergana")
-                .param("lastName", "Gereva")
-                .param("email", "geri@abv.bg")
-                .param("password", "222")
-                .param("confirmPassword", "222"))
+                        .with(csrf())
+                        .param("username", "Geri")
+                        .param("firstName", "Gergana")
+                        .param("lastName", "Gereva")
+                        .param("email", "geri@abv.bg")
+                        .param("password", "222")
+                        .param("confirmPassword", "222"))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/"));
 
@@ -62,15 +63,25 @@ public class OwnerControllerTests {
                 .andExpect(MockMvcResultMatchers.view().name("login"));
     }
 
-//    @Test
-//    public void confirmLogin() throws Exception {
-//        mockMvc.perform(MockMvcRequestBuilders.post("/owners/login")
-//                .with(csrf())
-//                .param("username", "Gosho")
-//                .param("password", "111"))
-//                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-//                .andExpect(MockMvcResultMatchers.redirectedUrl("/"));
-//
-//
-//    }
+
+    @Test
+    @WithMockUser(username = "administrator", authorities = {"ADMINISTRATOR"})
+    public void testAdmin() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/admin"))
+                .andExpect(MockMvcResultMatchers.view().name("admin"));
+    }
+
+    @Test
+    @WithMockUser(username = "moderator", authorities = {"MODERATOR"})
+    public void testModerator() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/moderator"))
+                .andExpect(MockMvcResultMatchers.view().name("moderator"));
+    }
+
+    @Test
+    @WithMockUser
+    public void testAdvice() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/advice"))
+                .andExpect(MockMvcResultMatchers.view().name("advice"));
+        }
 }

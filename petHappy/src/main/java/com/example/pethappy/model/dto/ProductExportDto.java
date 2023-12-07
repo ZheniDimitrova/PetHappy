@@ -13,6 +13,14 @@ public class ProductExportDto {
     private int count;
     private int storageCount;
 
+    public ProductExportDto(String name, String description, BigDecimal price, int count, int storageCount) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.count = count;
+        this.storageCount = storageCount;
+    }
+
     public ProductExportDto() {
     }
 
