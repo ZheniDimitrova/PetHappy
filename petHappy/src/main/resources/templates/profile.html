@@ -13,10 +13,20 @@
 
 <header th:replace="~{fragments/commons::nav}">
 </header>
-
-<div class="profile-container">
-
+<div class="container">
+    <div class="profile-content">
+        <span id="me"><i class="fa-solid fa-user"></i></span>
+        <hr>
+        <i class="fa-regular fa-circle-user"></i><span th:text="${username}"></span>
+        <hr>
+        <i class="fa-regular fa-user"></i><span th:text="${firstName}"></span>
+        <hr>
+        <i class="fa-regular fa-user"></i><span th:text="${lastName}"></span>
+        <hr>
+        <i class="fa-regular fa-envelope"></i><span th:text="${email}"></i></span>
+        <hr>
+    </div>
 </div>
-
+<footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
 </html>

@@ -22,6 +22,7 @@
         <div class="right-nav">
             <a th:href="@{/owners/register}" sec:authorize="!isAuthenticated()">РЕГИСТРАЦИЯ</a>
             <a th:href="@{/owners/login}" sec:authorize="!isAuthenticated()">ВХОД</a>
+            <a th:href="@{/owners/profile}" sec:authorize="isAuthenticated()">МОЯТ ПРОФИЛ</a>
             <a th:href="@{/owners/admin}" sec:authorize="hasAuthority('ADMINISTRATOR')">АДМИНИСТРАТОР</a>
             <a th:href="@{/owners/moderator}" sec:authorize="hasAuthority('MODERATOR')">МОДЕРАТОР</a>
             <form th:action="@{/owners/logout}" th:method="post" sec:authorize="isAuthenticated()">

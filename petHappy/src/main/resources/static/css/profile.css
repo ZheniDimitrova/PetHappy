@@ -1,0 +1,39 @@
+@import url('https://use.fontawesome.com/releases/v6.5.1/css/all.css');
+
+:root {
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246, 132, 32, 255);
+}
+
+.container {
+    background-color: var(--greenColor);
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#me {
+    font-size: 150px;
+    margin-left: 45%;
+}
+
+.profile-content {
+    width: 50vw;
+    margin-top: 1%;
+    align-content: center;
+    margin-left: 25%;
+    font-size: 40px;
+
+}
+
+.profile-content span {
+    margin-left: 5%;
+}
+
+hr {
+    border: solid 1px var(--orangeColor);
+}
+
+footer {
+    position: relative;
+    margin-top: 50px;
+}

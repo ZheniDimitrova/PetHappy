@@ -1,11 +1,14 @@
 package com.example.pethappy.web;
 
+import com.example.pethappy.model.entity.Owner;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.AddProductBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
@@ -84,6 +87,25 @@ public class OwnerController {
 
     }
 
+    @PostMapping("/login-error")
+    public String errorCredentials(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("invalidCredentials", true);
+
+        return "redirect:/owners/login";
+    }
+
+    @GetMapping("/profile")
+    public String myProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
+
+        Owner owner = ownerService.findOwnerByUsername(userDetails.getUsername());
+        model.addAttribute("username", owner.getUsername());
+        model.addAttribute("firstName", owner.getFirstName());
+        model.addAttribute("lastName", owner.getLastName());
+        model.addAttribute("email", owner.getEmail());
+
+        return "profile";
+    }
+
     @GetMapping("/admin")
     public String admin(Model model) {
         if (!model.containsAttribute("addProductBindingModel")){
@@ -99,12 +121,7 @@ public class OwnerController {
         return "moderator";
     }
 
-    @PostMapping("/login-error")
-    public String errorCredentials(RedirectAttributes redirectAttributes) {
-        redirectAttributes.addFlashAttribute("invalidCredentials", true);
 
-        return "redirect:/owners/login";
-    }
 
     @GetMapping("/advice")
     public String advice() {
