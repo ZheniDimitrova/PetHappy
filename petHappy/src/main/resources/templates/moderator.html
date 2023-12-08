@@ -1,18 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Happy</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-  <link rel="stylesheet" th:href="@{/css/moderator.css}">
-  <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/moderator.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
 </head>
 
 <body>
 
 <header th:replace="~{fragments/commons::nav}">
 </header>
+
+<div class="all-orders">
+
+<div th:each="o, iterator : ${ordersList}" class="order-container">
+
+    <div class="order-info">
+        <span class="init">Поръчка №:<span class="about" th:text="${iterator.count}"></span></span>
+        <hr>
+        <span class="init">Име:<span class="about" th:text="${o.owner.firstName}"></span></span>
+        <hr>
+        <span class="init">Фамилия:<span class="about" th:text="${o.owner.lastName}"></span></span>
+        <hr>
+        <span class="init">Град:<span class="about" th:text="${o.town}"></span></span>
+        <hr>
+        <span class="init">Адрес:<span class="about" th:text="${o.address}"></span></span>
+        <hr>
+        <span class="init">Телефон:<span class="about" th:text="${o.phoneNumber}"></span></span>
+        <hr>
+        <span class="init">Email:<span class="about" th:text="${o.owner.email}"></span></span>
+        <hr>
+    </div>
+    <div class="order-content">
+        <table>
+            <thead>
+            <tr>
+                <th>Продукт:</th>
+                <th>Име:</th>
+                <th>Цена:</th>
+                <th>Брой:</th>
+                <th>Общо:</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr class="product">
+                <td><img ></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="final-price-order">
+
+        <span>Обща сума на поръчката:</span>
+        <span><span></span>лв.</span>
+
+
+        <button type="submit">Завърши поръчката</button>
+    </div>
+
+</div>
+
+</div>
+
+
+
+<footer th:replace="~{fragments/commons::footer}"></footer>
 
 </body>
 </html>

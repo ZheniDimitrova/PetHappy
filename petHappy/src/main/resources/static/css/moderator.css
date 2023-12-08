@@ -1,0 +1,90 @@
+
+:root {
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246, 132, 32, 255);
+}
+
+body {
+    overflow-y: visible;
+    margin: 0;
+}
+
+.all-orders {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.all-orders {
+    align-content: center;
+}
+
+.order-container {
+    border: solid 3px grey;
+    width: 50vw;
+    padding: 1%;
+}
+
+hr {
+    border: solid lightgray 1px;
+    width: 50vw;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.order-info span {
+    padding-left: 1%;
+    font-size: 22px;
+    font-weight: bold;
+}
+.init {
+    color: black;
+
+}
+.about {
+    color: var(--orangeColor);
+    font-weight: lighter;
+}
+
+table {
+    align-items: center;
+    width: 50vw;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+thead {
+    border: solid lightgray 1px;
+    background-color: var(--greenColor);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+tbody td {
+    border: solid lightgray 1px;
+    font-size: 18px;
+}
+
+button {
+    background-color: var(--orangeColor);
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.final-price-order span {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+footer {
+    position: relative;
+    margin-top: 50px;
+}

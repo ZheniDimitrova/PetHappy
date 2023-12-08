@@ -9,6 +9,8 @@ import java.util.List;
 @Table(name = "orders")
 public class Order extends BaseEntity {
     @Column(nullable = false)
+    private String town;
+    @Column(nullable = false)
     private String address;
     @Column(nullable = false)
     private String phoneNumber;
@@ -16,7 +18,7 @@ public class Order extends BaseEntity {
     private LocalDateTime createdOn;
     @ManyToOne
     private Owner owner;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<OrderedProduct> orderedProducts;
 
 
@@ -24,6 +26,14 @@ public class Order extends BaseEntity {
 
 
     public Order() {
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String getAddress() {

@@ -1,5 +1,6 @@
 package com.example.pethappy.service.impl;
 
+import com.example.pethappy.model.dto.OrderExportDto;
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Order;
 import com.example.pethappy.model.entity.OrderedProduct;
@@ -76,5 +77,15 @@ public class OrderServiceImpl implements OrderService {
                 orderRepository.delete(order);
             }
         }
+    }
+
+    @Override
+    public List<OrderExportDto> getAllOrders() {
+
+        return orderRepository.findAll()
+                .stream()
+                .map(order -> modelMapper.map(order, OrderExportDto.class))
+                .collect(Collectors.toList());
+
     }
 }

@@ -5,6 +5,10 @@
     --orangeColor: rgba(246, 132, 32, 255);
 }
 
+body{
+    margin: 0;
+}
+
 .container {
     background-color: var(--greenColor);
     padding-top: 2%;

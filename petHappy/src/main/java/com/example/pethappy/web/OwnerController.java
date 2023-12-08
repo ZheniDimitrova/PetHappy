@@ -1,6 +1,8 @@
 package com.example.pethappy.web;
 
+import com.example.pethappy.model.dto.OrderExportDto;
 import com.example.pethappy.model.entity.Owner;
+import com.example.pethappy.service.OrderService;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.AddProductBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
@@ -9,7 +11,6 @@ import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,16 +21,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/owners")
 public class OwnerController {
 
     private final OwnerService ownerService;
+    private final OrderService orderService;
 
 
-    public OwnerController(OwnerService ownerService) {
+    public OwnerController(OwnerService ownerService, OrderService orderService) {
         this.ownerService = ownerService;
-
+        this.orderService = orderService;
     }
 
     @GetMapping()
@@ -116,7 +120,10 @@ public class OwnerController {
     }
 
     @GetMapping("/moderator")
-    public String moderator() {
+    public String moderator(Model model) {
+
+       List<OrderExportDto> orders = orderService.getAllOrders();
+       model.addAttribute("ordersList", orders);
 
         return "moderator";
     }
