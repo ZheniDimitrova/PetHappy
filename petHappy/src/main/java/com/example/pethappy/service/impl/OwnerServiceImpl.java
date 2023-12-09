@@ -63,10 +63,12 @@ public class OwnerServiceImpl implements OwnerService {
         Owner admin = new Owner("administrator", passwordEncoder.encode("adminPasss"),"admin@abv.bg", "Pasha", "Pesheva" );
         admin.getUserRoles().add(adminRole);
         admin.getUserRoles().add(moderatorRole);
+        admin.setTown("Sofia");
         ownerRepository.save(admin);
 
         Owner moderator = new Owner("moderator", passwordEncoder.encode("moderatorPasss"), "moderator@abv.bg", "Pesho", "Pashev");
         moderator.getUserRoles().add(moderatorRole);
+        moderator.setTown("Burgas");
         ownerRepository.save(moderator);
     }
 
@@ -82,6 +84,12 @@ public class OwnerServiceImpl implements OwnerService {
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(), userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
+    }
+
+    @Override
+    public Owner getOwnerById(Long id) {
+
+        return ownerRepository.findById(id).get();
     }
 
 

@@ -13,6 +13,8 @@ public class ProductExportDto {
     private int count;
     private int storageCount;
 
+    private Long pictureId;
+
     public ProductExportDto(String name, String description, BigDecimal price, int count, int storageCount) {
         this.name = name;
         this.description = description;
@@ -70,5 +72,13 @@ public class ProductExportDto {
 
     public void setStorageCount(int storageCount) {
         this.storageCount = storageCount;
+    }
+
+    public Long getPictureId() {
+        return pictureId;
+    }
+
+    public void setPictureId(Long pictureId) {
+        this.pictureId = pictureId;
     }
 }

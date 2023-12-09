@@ -7,6 +7,8 @@ import java.util.List;
 
 public class OrderExportDto {
 
+    private Long id;
+
     private String town;
 
     private String address;
@@ -20,7 +22,13 @@ public class OrderExportDto {
     public OrderExportDto() {
     }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTown() {
         return town;
@@ -68,5 +76,15 @@ public class OrderExportDto {
 
     public void setOrderedProducts(List<OrderedProduct> orderedProducts) {
         this.orderedProducts = orderedProducts;
+    }
+
+    public double getFinalPrice() {
+
+        double finalPrice = 0;
+
+        for (OrderedProduct product : orderedProducts) {
+            finalPrice += product.getPrice().doubleValue() * product.getCount();
+        }
+        return finalPrice;
     }
 }

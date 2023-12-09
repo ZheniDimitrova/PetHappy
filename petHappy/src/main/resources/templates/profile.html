@@ -15,18 +15,22 @@
 </header>
 <div class="container">
     <div class="profile-content">
+
+        <span id="hidden" th:text="${profileId}"></span>
         <span id="me"><i class="fa-solid fa-user"></i></span>
         <hr>
-        <i class="fa-regular fa-circle-user"></i><span th:text="${username}"></span>
+        <i class="fa-regular fa-circle-user"></i><span id="username"></span>
         <hr>
-        <i class="fa-regular fa-user"></i><span th:text="${firstName}"></span>
+        <i class="fa-regular fa-user"></i><span id="firstName"></span>
         <hr>
-        <i class="fa-regular fa-user"></i><span th:text="${lastName}"></span>
+        <i class="fa-regular fa-user"></i><span id="lastName"></span>
         <hr>
-        <i class="fa-regular fa-envelope"></i><span th:text="${email}"></i></span>
+        <i class="fa-regular fa-envelope"></i><span id="email"></i></span>
         <hr>
     </div>
 </div>
 <footer th:replace="~{fragments/commons::footer}"></footer>
+
+<script th:src = "@{/js/script.js}"></script>
 </body>
 </html>

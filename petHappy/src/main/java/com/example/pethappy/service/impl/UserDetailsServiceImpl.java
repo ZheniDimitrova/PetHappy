@@ -28,6 +28,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         Owner owner = ownerRepository.findByUsername(username);
 
+        if (owner == null) {
+            return null;
+        }
+
         return getDetails(owner);
     }
 

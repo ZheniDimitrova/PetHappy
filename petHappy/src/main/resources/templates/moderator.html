@@ -18,6 +18,7 @@
 
 <div th:each="o, iterator : ${ordersList}" class="order-container">
 
+<form th:action="@{/deleteOrder/{id}(id=${o.id})}" th:method="delete">
     <div class="order-info">
         <span class="init">Поръчка №:<span class="about" th:text="${iterator.count}"></span></span>
         <hr>
@@ -47,12 +48,12 @@
             </thead>
 
             <tbody>
-            <tr class="product">
-                <td><img ></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr class="product" th:each="op : ${o.orderedProducts}">
+                <td class="pic"><img th:src="@{/downloadPictureById/{productId}(productId=${op.pictureId})}"></td>
+                <td th:text="${op.name}"></td>
+                <td th:text="${op.price}"></td>
+                <td th:text="${op.count}"></td>
+                <td th:text="${op.count * op.price}"></td>
             </tr>
             </tbody>
         </table>
@@ -60,13 +61,13 @@
     </div>
     <div class="final-price-order">
 
-        <span>Обща сума на поръчката:</span>
+        <span>Обща сума на поръчката:</span> <span th:text="${#numbers.formatDecimal(o.getFinalPrice(),1,2,'POINT')}"></span>
         <span><span></span>лв.</span>
 
 
         <button type="submit">Завърши поръчката</button>
     </div>
-
+    </form>
 </div>
 
 </div>

@@ -73,6 +73,7 @@ public class ProductServiceTests {
 
         Mockito.when(productsRepository.findById(id)).thenReturn(Optional.of(product));
         Mockito.when(modelMapper.map(product, ProductExportDto.class)).thenReturn(exportDto);
+        Mockito.when(product.getPicture()).thenReturn(Mockito.mock(Picture.class));
 
         //Act
         ProductExportDto dto = toTest.getProductDtoById(id);

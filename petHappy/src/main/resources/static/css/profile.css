@@ -8,6 +8,9 @@
 body{
     margin: 0;
 }
+#hidden {
+    display: none;
+}
 
 .container {
     background-color: var(--greenColor);

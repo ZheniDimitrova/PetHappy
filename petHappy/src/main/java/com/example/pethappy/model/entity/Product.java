@@ -19,6 +19,7 @@ public class Product extends BaseEntity {
     private PetTypeEnum forType;
     @Column(nullable = false)
     private BigDecimal price;
+
     @OneToOne
     private Picture picture;
 
@@ -26,6 +27,8 @@ public class Product extends BaseEntity {
     private Category category;
     @ManyToOne
     private Owner owner;
+
+
 
 
     public Product() {
@@ -67,6 +70,7 @@ public class Product extends BaseEntity {
 
         return price;
     }
+
 
     public void setPrice(BigDecimal price) {
         this.price = price;

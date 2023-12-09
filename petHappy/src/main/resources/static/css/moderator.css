@@ -69,6 +69,10 @@ tbody td {
     border: solid lightgray 1px;
     font-size: 18px;
 }
+.pic img {
+    width: 3vw;
+
+}
 
 button {
     background-color: var(--orangeColor);

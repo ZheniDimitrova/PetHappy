@@ -17,7 +17,6 @@ public interface ProductService {
 
     List<ProductExportDto> findByPetTypeEnum(PetTypeEnum petTypeEnum);
 
-    void initProducts();
 
     ProductExportDto getProductDtoById(Long id);
 
@@ -27,5 +26,9 @@ public interface ProductService {
     Product findProductById(Long id);
 
     double sumFinalPrice(List<ProductExportDto> productList) throws ParseException;
+
+    void deleteCurrentProduct(Long id);
+
+    void updateProductStorageCount(Product product, int amount);
 }
 

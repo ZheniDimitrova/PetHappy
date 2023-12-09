@@ -29,4 +29,9 @@ public class PictureServiceImpl implements PictureService {
 
         return pic;
     }
+
+    @Override
+    public Picture getById(Long id) {
+        return pictureRepository.findById(id).get();
+    }
 }

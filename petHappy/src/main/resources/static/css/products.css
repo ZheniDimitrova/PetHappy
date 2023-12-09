@@ -51,7 +51,7 @@ body {
 }
 
 .product img {
-    width: 15vw;
+    width: 12vw;
 }
 
 .product p {
@@ -77,6 +77,16 @@ button {
     display: flex;
     color: orangered;
     font-weight: bold;
+}
+
+#btn-del {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 5px 18px;
+    text-align: center;
+    text-decoration: none;
+    background-color: orangered;
+    margin-top: 27px;
 }
 
 footer {

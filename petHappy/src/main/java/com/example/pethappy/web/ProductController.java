@@ -87,11 +87,20 @@ public class ProductController {
         ProductExportDto product = productService.getProductDtoById(id);
         product.setCount(count);
 
+        Product product1 = productService.findProductById(id);
+
         cart.getProducts().add(product);
 
-
+        productService.updateProductStorageCount(product1, -count);
 
         return "redirect:/currentProduct/" + id;
+    }
+
+    @DeleteMapping("/deleteProduct/{productId}")
+    public String deleteProduct (@PathVariable ("productId") Long id) {
+        productService.deleteCurrentProduct(id);
+
+        return "redirect:/shop";
     }
 
 

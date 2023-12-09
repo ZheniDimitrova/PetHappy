@@ -17,6 +17,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,15 +44,15 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addNewOrder(OrderBindingModel orderBindingModel, String username) {
 
-        List<OrderedProduct> orderedProductList = cart.getProducts().stream()
-                .map(productExportDto -> modelMapper.map(productExportDto, OrderedProduct.class))
-                .collect(Collectors.toList());
+        List<OrderedProduct> orderedProductList = new ArrayList<>();
 
         for (ProductExportDto productExportDto : cart.getProducts()){
-            Product product = productRepository.findById(productExportDto.getId()).get();
-            product.setStorageCount(product.getStorageCount() - productExportDto.getCount());
+            OrderedProduct orderedProduct = modelMapper.map(productExportDto, OrderedProduct.class);
+            orderedProduct.setProductId(productExportDto.getId());
 
-            productRepository.save(product);
+            orderedProductList.add(orderedProduct);
+
+            Product product = productRepository.findById(productExportDto.getId()).get();
 
             if (product.getStorageCount() == 0) {
                 productRepository.delete(product);
@@ -65,6 +66,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = modelMapper.map(orderBindingModel, Order.class);
         order.setOwner(owner);
         order.setCreatedOn(LocalDateTime.now());
+        order.setOrderedProducts(orderedProductList);
         orderRepository.save(order);
         cart.getProducts().clear();
     }
@@ -88,4 +90,11 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
 
     }
+
+    @Override
+    public void deleteCurrentOrder(Long id) {
+        orderRepository.deleteById(id);
+    }
+
+
 }

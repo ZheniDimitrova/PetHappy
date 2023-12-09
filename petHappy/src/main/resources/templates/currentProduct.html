@@ -31,7 +31,7 @@
         <p id="content" th:text="${productDesc}"></p>
         <p>
             <span class="text">Брой: </span>
-            <input class="count" name="count" type="number" value="1" th:max="${maxProductCount}">
+            <input class="count" name="count" type="number" value="1" th:min="1" th:max="${maxProductCount}">
         </p>
         <p>
             <span class="text">Цена: </span>
@@ -39,7 +39,7 @@
             <span>лв.</span>
         </p>
 
-            <button type="submit">Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
+            <button type="submit" th:if="${maxProductCount > 0}">Добави в количката <i class="fa-solid fa-cart-shopping"></i></button>
 
         </form>
     </article>

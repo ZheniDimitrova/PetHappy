@@ -11,4 +11,6 @@ public interface PictureService {
 
     Picture uploadPicture(MultipartFile multipartFile) throws IOException;
 
+    Picture getById(Long id);
+
 }

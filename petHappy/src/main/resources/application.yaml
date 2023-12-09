@@ -27,3 +27,11 @@ logging:
     blog: WARN
 server:
   port: 8080
+
+  spring:
+    mvc:
+      hidden-method:
+        filter:
+          enabled=true:
+
+

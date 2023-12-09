@@ -2,6 +2,7 @@ package com.example.pethappy.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
@@ -9,6 +10,10 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "ordered_product")
 public class OrderedProduct extends BaseEntity{
+    @Column(nullable = false)
+    private Long productId;
+    @Column
+    private Long pictureId;
     @Column(nullable = false)
     private String name;
 
@@ -19,6 +24,22 @@ public class OrderedProduct extends BaseEntity{
 
 
     public OrderedProduct() {
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
+
+    public Long getPictureId() {
+        return pictureId;
+    }
+
+    public void setPictureId(Long pictureId) {
+        this.pictureId = pictureId;
     }
 
     public String getName() {

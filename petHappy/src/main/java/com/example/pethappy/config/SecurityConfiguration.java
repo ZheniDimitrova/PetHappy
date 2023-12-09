@@ -20,28 +20,27 @@ import org.springframework.security.web.context.SecurityContextRepository;
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-    @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain getSecurityFilterChain(HttpSecurity httpSecurity, SecurityContextRepository securityContextRepository) throws Exception {
 
 
-        httpSecurity.authorizeHttpRequests()
-                .requestMatchers( "/", "/static/**", "/images/**", "/css/**", "/css/responsive/**","/owners/login", "/owners/register", "/aboutUs", "/contacts", "/shop",
+        httpSecurity.authorizeHttpRequests((requests) ->
+                requests.requestMatchers( "/", "/static/**", "/images/**", "/css/**", "/css/responsive/**","/owners/login", "/owners/register", "/aboutUs", "/contacts", "/shop",
                         "/products/{type}", "/downloadPicture/{productId}", "/owners/login-error").permitAll()
                 .requestMatchers("/owners/admin").hasAuthority(UserRoleEnum.ADMINISTRATOR.name())
                 .requestMatchers("/owners/moderator").hasAuthority(UserRoleEnum.MODERATOR.name())
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/owners/login")
+                .anyRequest().authenticated())
+                .formLogin((form) ->
+                form.loginPage("/owners/login")
                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
                 .defaultSuccessUrl("/", true)
-                .failureForwardUrl("/owners/login-error")
-                .and().logout().logoutUrl("/owners/logout").invalidateHttpSession(true)
-                .logoutSuccessUrl("/")
-                .and().securityContext()
-                .securityContextRepository(securityContextRepository);
+                .failureForwardUrl("/owners/login-error"))
+                .logout((logout) ->
+                        logout.logoutUrl("/owners/logout").invalidateHttpSession(true)
+                .logoutSuccessUrl("/"))
+                .securityContext((securityContext) ->
+                securityContext.securityContextRepository(securityContextRepository));
 
         return httpSecurity.build();
     }

@@ -52,42 +52,14 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public void initProducts() {
 
-        if (productsRepository.count() > 0) {
-            return;
-        }
-
-        Random random = new Random();
-
-        for (int i = 1; i <= 36; i++) {
-            Product product = new Product();
-            product.setName("product" + i);
-            product.setPrice(new BigDecimal(random.nextDouble()));
-
-            PetTypeEnum petTypeEnum = null;
-            if (i <= 12) {
-                petTypeEnum = PetTypeEnum.CAT;
-            } else if (i <= 24) {
-                petTypeEnum = PetTypeEnum.DOG;
-            } else {
-                petTypeEnum = PetTypeEnum.OTHER;
-            }
-            product.setForType(petTypeEnum);
-            product.setStorageCount(random.nextInt(9) + 1);
-            productsRepository.save(product);
-        }
-
-
-
-    }
 
     @Override
     public ProductExportDto getProductDtoById(Long id) {
         Product product = productsRepository.findById(id).get();
 
         ProductExportDto exportDto = modelMapper.map(product, ProductExportDto.class);
+        exportDto.setPictureId(product.getPicture().getId());
         return exportDto;
     }
 
@@ -122,5 +94,17 @@ public class ProductServiceImpl implements ProductService {
 
         return Math.floor(finalPrice * 100)/100.00;
 
+    }
+
+    @Override
+    public void deleteCurrentProduct(Long id) {
+        productsRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateProductStorageCount(Product product, int amount) {
+        product.setStorageCount(product.getStorageCount() + amount);
+
+        productsRepository.save(product);
     }
 }

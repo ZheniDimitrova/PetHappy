@@ -2,6 +2,7 @@ package com.example.pethappy.web;
 
 import com.example.pethappy.model.entity.Picture;
 import com.example.pethappy.model.entity.Product;
+import com.example.pethappy.service.PictureService;
 import com.example.pethappy.service.ProductService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PictureRestController {
     private final ProductService productService;
+    private final PictureService pictureService;
 
-    public PictureRestController(ProductService productService) {
+    public PictureRestController(ProductService productService, PictureService pictureService) {
         this.productService = productService;
+        this.pictureService = pictureService;
     }
 
 
@@ -38,5 +41,21 @@ public class PictureRestController {
         return  new HttpEntity<>(picture.getBytes(), headers);
     }
 
+    @GetMapping("/downloadPictureById/{pictureId}")
+    public HttpEntity<byte[]> downloadPictureById(@PathVariable("pictureId") Long id) {
+
+        Picture picture = pictureService.getById(id);
+
+        if (picture == null) {
+            return null;
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(new MediaType(MimeTypeUtils.parseMimeType(picture.getPictureType())));
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "atachment; filename=" + picture.getPictureName());
+        headers.setContentLength(picture.getBytes().length);
+
+        return  new HttpEntity<>(picture.getBytes(), headers);
+    }
 
 }

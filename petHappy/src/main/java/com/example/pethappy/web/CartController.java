@@ -2,6 +2,7 @@ package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Owner;
+import com.example.pethappy.model.entity.Product;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.service.ProductService;
 import com.example.pethappy.util.Cart;
@@ -53,7 +54,11 @@ public class CartController {
     @GetMapping("/removeFromCart/{index}")
     public String removeFromCart(@PathVariable("index") int index) {
 
-        cart.getProducts().remove(index);
+        ProductExportDto exportDto = cart.getProducts().remove(index);
+
+        Product product = productService.findProductById(exportDto.getId());
+
+        productService.updateProductStorageCount(product, exportDto.getCount());
         return "redirect:/cart";
     }
 

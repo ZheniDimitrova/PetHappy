@@ -11,4 +11,7 @@ public interface OrderService {
     void clearOrder();
 
     List<OrderExportDto> getAllOrders();
+
+    void deleteCurrentOrder(Long id);
+
 }

@@ -29,6 +29,10 @@
         <a th:href="@{/currentProduct/{id}(id=${p.id})}">
             <button type="submit">КУПИ</button>
         </a>
+
+        <form th:action="@{/deleteProduct/{id}(id=${p.id})}" th:method="delete" sec:authorize = "hasAuthority('ADMINISTRATOR')">
+            <button id="btn-del" type="submit">ИЗТРИЙ</button>
+        </form>
     </div>
 </article>
 <footer th:replace="~{fragments/commons::footer}"></footer>

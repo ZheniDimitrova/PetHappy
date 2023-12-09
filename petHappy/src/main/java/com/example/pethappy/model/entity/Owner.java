@@ -21,8 +21,7 @@ public class Owner extends BaseEntity {
     private String lastName;
     @Column
     private String town;
-    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
-    private Set<Pet> pets;
+
     @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     private Set<Order> orders;
     @ManyToMany(fetch = FetchType.EAGER)
@@ -88,13 +87,6 @@ public class Owner extends BaseEntity {
         this.town = town;
     }
 
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
-        this.pets = pets;
-    }
 
     public Set<Order> getOrders() {
         return orders;

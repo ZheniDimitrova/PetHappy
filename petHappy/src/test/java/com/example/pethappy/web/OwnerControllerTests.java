@@ -72,10 +72,10 @@ public class OwnerControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "moderator", authorities = {"MODERATOR"})
+    @WithMockUser(username = "moderator")
     public void testModerator() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/moderator"))
-                .andExpect(MockMvcResultMatchers.view().name("moderator"));
+                .andExpect(MockMvcResultMatchers.status().isForbidden());
     }
 
     @Test
@@ -83,5 +83,16 @@ public class OwnerControllerTests {
     public void testAdvice() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/owners/advice"))
                 .andExpect(MockMvcResultMatchers.view().name("advice"));
-        }
+    }
+
+    @Test
+    @WithMockUser(username = "administrator")
+    public void testProfile() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/profile"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.model().attributeExists("profileId"))
+                .andExpect(MockMvcResultMatchers.view().name("profile"));
+
+    }
+
 }

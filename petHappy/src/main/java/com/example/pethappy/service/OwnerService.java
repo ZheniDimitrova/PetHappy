@@ -11,4 +11,6 @@ public interface OwnerService {
     Owner findOwnerByUsername(String username);
 
     void loginOwner(String username);
+
+    Owner getOwnerById(Long id);
 }

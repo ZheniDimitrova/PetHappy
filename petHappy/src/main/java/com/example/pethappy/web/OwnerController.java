@@ -102,10 +102,7 @@ public class OwnerController {
     public String myProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
 
         Owner owner = ownerService.findOwnerByUsername(userDetails.getUsername());
-        model.addAttribute("username", owner.getUsername());
-        model.addAttribute("firstName", owner.getFirstName());
-        model.addAttribute("lastName", owner.getLastName());
-        model.addAttribute("email", owner.getEmail());
+        model.addAttribute("profileId", owner.getId());
 
         return "profile";
     }
