@@ -1,5 +1,6 @@
 package com.example.pethappy.config;
 
+import com.example.pethappy.filters.Interceptor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,5 +18,10 @@ public class ApplicationBeanConfiguration {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public Interceptor interceptor() {
+        return new Interceptor();
     }
 }

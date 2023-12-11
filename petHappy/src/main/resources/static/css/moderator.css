@@ -87,6 +87,9 @@ button {
     font-size: 26px;
     font-weight: bold;
 }
+#btn:hover {
+    background-color: red;
+}
 
 footer {
     position: relative;

@@ -51,8 +51,11 @@ button {
     border: solid black 3px;
     padding: 5px;
     margin-top: 25px;
-
 }
+#btn-add:hover {
+    background-color: var(--orangeColor);
+}
+
 .input-error {
     background-color: rgba(236,28,46,255);
 }

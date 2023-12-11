@@ -27,8 +27,8 @@ public class SecurityConfiguration {
         httpSecurity.authorizeHttpRequests((requests) ->
                 requests.requestMatchers( "/", "/static/**", "/images/**", "/css/**", "/css/responsive/**","/owners/login", "/owners/register", "/aboutUs", "/contacts", "/shop",
                         "/products/{type}", "/downloadPicture/{productId}", "/owners/login-error").permitAll()
-                .requestMatchers("/owners/admin").hasAuthority(UserRoleEnum.ADMINISTRATOR.name())
-                .requestMatchers("/owners/moderator").hasAuthority(UserRoleEnum.MODERATOR.name())
+                .requestMatchers("/owners/admin", "/products/addProduct", "/deleteProduct/{productId}").hasAuthority(UserRoleEnum.ADMINISTRATOR.name())
+                .requestMatchers("/owners/moderator", "/deleteOrder/{orderId}").hasAuthority(UserRoleEnum.MODERATOR.name())
                 .anyRequest().authenticated())
                 .formLogin((form) ->
                 form.loginPage("/owners/login")
