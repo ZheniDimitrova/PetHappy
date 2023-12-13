@@ -5,6 +5,7 @@ import com.example.pethappy.model.entity.Owner;
 import com.example.pethappy.service.OrderService;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.AddProductBindingModel;
+import com.example.pethappy.validation.EditProfileBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -15,10 +16,7 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -46,6 +44,11 @@ public class OwnerController {
     @ModelAttribute
     public OwnerRegisterBindingModel ownerRegisterBindingModel() {
         return  new OwnerRegisterBindingModel();
+    }
+
+    @ModelAttribute
+    public EditProfileBindingModel editProfileBindingModel() {
+        return new EditProfileBindingModel();
     }
 
 
@@ -131,6 +134,31 @@ public class OwnerController {
     public String advice() {
 
         return "advice";
+    }
+
+
+
+    @GetMapping("/editProfile")
+    public String editCurrentProfile() {
+
+        return "editProfile";
+    }
+
+    @PutMapping("/confirmEditProfile")
+    public String confirmEditProfile(@AuthenticationPrincipal UserDetails userDetails,@Valid EditProfileBindingModel editProfileBindingModel,
+                                     BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpSession httpSession) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("editProfileBindingModel", editProfileBindingModel);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.editProfileBindingModel", bindingResult);
+
+           return "redirect:/editProfile";
+        }
+
+        ownerService.editProfileData(userDetails.getUsername(), editProfileBindingModel);
+        SecurityContextHolder.clearContext();
+        httpSession.invalidate();
+
+        return "redirect:/owners/profile";
     }
 
 

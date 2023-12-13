@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Happy</title>
+    <link rel="stylesheet" th:href="@{/css/editProfile.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
+</head>
+
+<body>
+
+<header th:replace="~{fragments/commons::nav}">
+</header>
+
+<div class="container">
+    <div class="profile-content">
+
+        <span id="me"><i class="fa-solid fa-user"></i></span>
+
+        <form th:action="@{/owners/confirmEditProfile}" th:method="put" th:object="${editProfileBindingModel}">
+
+            <hr>
+            <i class="fa-regular fa-circle-user"></i><input type="text" name="username">
+            <hr>
+            <i class="fa-regular fa-user"></i><input type="text" name="firstName">
+            <hr>
+            <i class="fa-regular fa-user"></i><input type="text" name="lastName">
+            <hr>
+            <i class="fa-regular fa-envelope"></i><input type="email" name="email">
+            <hr>
+            <a th:href="@{owners/confirmEditProfile}" class="edit"><button type="submit">Потвърди промените</button></a>
+        </form>
+
+    </div>
+</div>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+
+
+</body>
+</html>

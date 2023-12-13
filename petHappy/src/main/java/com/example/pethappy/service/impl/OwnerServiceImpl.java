@@ -6,6 +6,7 @@ import com.example.pethappy.model.entity.enums.UserRoleEnum;
 import com.example.pethappy.repository.OwnerRepository;
 import com.example.pethappy.repository.UserRoleRepository;
 import com.example.pethappy.service.OwnerService;
+import com.example.pethappy.validation.EditProfileBindingModel;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -90,6 +91,18 @@ public class OwnerServiceImpl implements OwnerService {
     public Owner getOwnerById(Long id) {
 
         return ownerRepository.findById(id).get();
+    }
+
+    @Override
+    public void editProfileData(String username, EditProfileBindingModel editProfileBindingModel) {
+
+        Owner owner = ownerRepository.findByUsername(username);
+        owner.setUsername(editProfileBindingModel.getUsername());
+        owner.setFirstName(editProfileBindingModel.getFirstName());
+        owner.setLastName(editProfileBindingModel.getLastName());
+        owner.setEmail(editProfileBindingModel.getEmail());
+
+        ownerRepository.save(owner);
     }
 
 

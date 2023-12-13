@@ -7,6 +7,16 @@
 
 body{
     margin: 0;
+    background-color: floralwhite;
+}
+
+.image-logo img {
+    position: relative;
+    margin-left: 4%;
+    margin-bottom: -30%;
+    margin-top: 0%;
+    width: 90%;
+
 }
 h3 {
     display: flex;
@@ -32,12 +42,10 @@ h3 {
     font-weight: bold;
     flex-wrap: wrap;
     align-content: center;
-    color: var(--greenColor);
-    gap: 50px;
-    border: solid var(--greenColor) 2px;
+    gap: 15px;
     height: 70vh;
-    padding: 20px;
-    background-color: var(--greenColor);
+    padding: 5px;
+    background-color: floralwhite;
     align-items: center;
 }
 
@@ -68,13 +76,11 @@ button {
     margin-top: 50px;
 }
 
+button:hover{
+    background-color: var(--orangeColor);
+}
+
 form div {
     margin-bottom: 15px;
 }
 
-footer {
-    position: absolute;
-    bottom: 15px;
-    left: 50vw;
-    transform: translateX(-50%);
-}

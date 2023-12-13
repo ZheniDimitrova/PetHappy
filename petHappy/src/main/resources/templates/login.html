@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Happy</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/login.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
 </head>
 
@@ -17,7 +17,9 @@
 
 
 <section class="form">
-
+    <div class="image-logo">
+        <img th:src="@{/images/logoHappy.png}">
+    </div>
     <h3>Вход</h3>
     <span class="invalid" th:if="${invalidCredentials}">Грешно име и/или парола! Ако нямате профил, моля, регистрирайте се!</span>
 

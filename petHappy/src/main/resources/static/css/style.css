@@ -1,3 +1,7 @@
+:root{
+    --greenColor: #bfd798;
+    --orangeColor: rgba(246,132,32,255);
+}
 
 body{
     overflow: hidden;
@@ -30,7 +34,7 @@ nav a, #logout-btn {
     font-weight: bold;
     margin: 20px;
     padding: 6px 12px;
-    background-color: darkorange;
+    background-color: var(--orangeColor);
     border: solid 3px floralwhite;
     border-radius: 8px;
 }
@@ -50,18 +54,25 @@ nav a, #logout-btn {
     width: 100vw;
 }
 
+.image-logo img {
+    position: relative;
+    margin-left: 50%;
+    margin-bottom: 30%;
+    margin-top: -38%;
+    width: 20%;
+}
 
 footer {
-    width: 100vw;
-    text-align: center;
-    font-size: 20px;
-    background-color: darkseagreen;
-    color: lemonchiffon;
     position: absolute;
-    bottom: 15px;
-    left: 50vw;
-    transform: translateX(-50%);
-
+    bottom: 0px;
+    /* left: 50vw; */
+    /* transform: translateX(-50%); */
+    background-color: darkseagreen;
+    width: 100vw;
+    padding: 10px;
+    color: floralwhite;
+    font-size: 16px;
+    text-align: center;
 }
 
 
