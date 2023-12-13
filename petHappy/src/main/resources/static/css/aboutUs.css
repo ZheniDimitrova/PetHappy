@@ -1,25 +1,27 @@
-:root{
-    --greenColor: #bfd798;
-    --orangeColor: rgba(246,132,32,255);
+
+body {
+    margin: 0;
 }
 
 
 .about-us {
     display: flex;
     gap: 50px;
-    background-color: var(--greenColor);
-    height: 72vh;
+    background-color: floralwhite;
+    height: 85vh;
     padding-top: 20px;
 }
 
 .image img{
-    width: 70vh;
-    margin-left: 2vw;
+    width: 75vh;
+    margin-left: 3vw;
+    margin-top: 2vw;
 }
 
 .info h2{
     font-size: 36px;
     font-weight: bold;
+    margin-top: 5vw;
 }
 
  p {

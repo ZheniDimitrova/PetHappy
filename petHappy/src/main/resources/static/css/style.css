@@ -1,6 +1,38 @@
 
 body{
     overflow: hidden;
+    margin: 0;
+}
+
+nav {
+    padding: 10px 5px;
+    background-color: darkseagreen;
+    width: 100vw;
+    height: 8vh;
+
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+form {
+    width: fit-content;
+}
+nav a, #logout-btn {
+    color: floralwhite;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px;
+    padding: 6px 12px;
+    background-color: darkorange;
+    border: solid 3px floralwhite;
+    border-radius: 8px;
 }
 
 
@@ -20,9 +52,11 @@ body{
 
 
 footer {
+    width: 100vw;
     text-align: center;
     font-size: 20px;
-    color: rgba(246,132,32,255);
+    background-color: darkseagreen;
+    color: lemonchiffon;
     position: absolute;
     bottom: 15px;
     left: 50vw;
@@ -31,33 +65,3 @@ footer {
 }
 
 
-nav img {
-    width: 23vw;
-}
-
-
-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 5px;
-
-
-}
-
-.right-nav {
-    display: flex;
-}
-
-form {
-    width: fit-content;
-}
-nav a,#logout-btn {
-    color: rgba(246,132,32,255);
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 20px;
-    background-color: transparent;
-    border: none;
-}
