@@ -119,6 +119,25 @@ public class OwnerController {
         return "admin";
     }
 
+    @PatchMapping("/changeRole")
+    public String changeRole(@RequestParam("username") String username, @RequestParam("role") String role, @AuthenticationPrincipal UserDetails userDetails, HttpSession httpSession,
+                             RedirectAttributes redirectAttributes) {
+
+        try {
+            ownerService.changeCurrentRole(username, role);
+        } catch (IllegalArgumentException e) {
+            redirectAttributes.addFlashAttribute("isUserNotFound", true);
+        }
+
+
+        if (userDetails.getUsername().equals(username)){
+            SecurityContextHolder.clearContext();
+            httpSession.invalidate();
+        }
+
+        return "redirect:/owners/admin";
+    }
+
     @GetMapping("/moderator")
     public String moderator(Model model) {
 

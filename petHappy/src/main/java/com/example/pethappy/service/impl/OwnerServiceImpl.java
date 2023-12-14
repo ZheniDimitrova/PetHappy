@@ -17,6 +17,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Service
 public class OwnerServiceImpl implements OwnerService {
 
@@ -102,6 +105,37 @@ public class OwnerServiceImpl implements OwnerService {
         owner.setLastName(editProfileBindingModel.getLastName());
         owner.setEmail(editProfileBindingModel.getEmail());
 
+        ownerRepository.save(owner);
+    }
+
+    @Override
+    public void changeCurrentRole(String username, String role) {
+        Owner owner = ownerRepository.findByUsername(username);
+
+        if (owner == null) {
+            throw new IllegalArgumentException("Owner not found!");
+        }
+
+        Set<UserRole> userRoles = new HashSet<>();
+        UserRole adminRole = userRoleRepository.findById(1L).get();
+        UserRole moderatorRole = userRoleRepository.findById(2L).get();
+
+        switch (role) {
+            case "ADMINISTRATOR": {
+                userRoles.add(adminRole);
+                userRoles.add(moderatorRole);
+            }
+            break;
+
+            case "MODERATOR": {
+                userRoles.add(moderatorRole);
+            }
+                break;
+
+            case "USER": break;
+        }
+
+        owner.setUserRoles(userRoles);
         ownerRepository.save(owner);
     }
 

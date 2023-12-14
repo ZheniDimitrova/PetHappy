@@ -13,6 +13,7 @@
 
 <header th:replace="~{fragments/commons::nav}">
 </header>
+<div class="main-container">
 
 <section class="form-container">
     <form th:method="post" th:action="@{/products/addProduct}" th:object="${addProductBindingModel}" class="addProduct" enctype="multipart/form-data">
@@ -40,6 +41,24 @@
     </form>
 
 </section>
+
+
+<section class="change-roles-container">
+
+    <small th:if = "${isUserNotFound}">Потребителят не е намерен!</small>
+    <form class="form" th:action="@{/owners/changeRole}" th:method="patch">
+        <input type="text" name="username">
+        <input type="radio" name="role" value="ADMINISTRATOR">Администратор
+        <input type="radio" name="role" value="MODERATOR">Модератор
+        <input type="radio" name="role" value="USER">Потребител
+
+        <button type="submit">Потвърди</button>
+    </form>
+
+</section>
+
+</div>
+
 <footer th:replace="~{fragments/commons::footer}"></footer>
 </body>
 </html>

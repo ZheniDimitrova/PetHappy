@@ -18,4 +18,7 @@ public interface OwnerService {
 
 
     void editProfileData(String username, EditProfileBindingModel editProfileBindingModel);
+
+    void changeCurrentRole(String username, String role);
+
 }

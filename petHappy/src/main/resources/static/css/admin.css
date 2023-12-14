@@ -3,7 +3,18 @@
     --orangeColor: rgba(246,132,32,255);
 }
 
-.form-container {
+body {
+    overflow-y: visible;
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin: 30px;
+}
+
+.form-container  {
     display: flex;
     flex-direction: column;
     font-size: 15px;
@@ -13,10 +24,25 @@
     align-content: center;
     color: var(--greenColor);
     gap: 20px;
-    border: solid var(--greenColor) 2px;
+    border: solid lightgray 5px;
     height: 70vh;
     padding: 20px;
-    background-color: var(--greenColor);
+    background-color: floralwhite;
+}
+.change-roles-container {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 59vh;
+    background-color: floralwhite;
+    border: solid 5px lightgray;
+    padding: 70px;
+    font-size: 32px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
 
 .addProduct {
@@ -69,7 +95,7 @@ button {
 
 footer {
     position: absolute;
-    bottom: 8px;
+    bottom: 0;
     left: 50vw;
     transform: translateX(-50%);
 }
