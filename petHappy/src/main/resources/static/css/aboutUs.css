@@ -24,8 +24,16 @@ body {
     margin-top: 5vw;
 }
 
+.image-logo img {
+    position: relative;
+    margin-left: 40%;
+    margin-bottom: 0%;
+    margin-top: -15%;
+    width: 15vw;
+}
+
  p {
-    font-size: 24px;
+    font-size: 20px;
      text-align: justify;
      margin-right: 2vw;
 }
@@ -33,7 +41,7 @@ body {
 
 footer {
     position: absolute;
-    bottom: 15px;
+    bottom: 0;
     left: 50vw;
     transform: translateX(-50%);
 }

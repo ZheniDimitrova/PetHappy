@@ -5,10 +5,11 @@
 
 body{
     margin: 0;
+    background-color: floralwhite;
 }
 
 .container{
-    background-color: var(--greenColor);
+    background-color: floralwhite;
     height: 75vh;
     padding-top: 20px;
 }
@@ -50,7 +51,7 @@ a {
 
 footer {
     position: absolute;
-    bottom: 15px;
+    bottom: 0;
     left: 50vw;
     transform: translateX(-50%);
 }

@@ -13,13 +13,21 @@
 }
 
 body {
-    overflow-y: visible;
+    overflow: visible;
     font-family: 'Roboto', sans-serif;
     background-color: floralwhite;
 }
 
 nav {
     height: 10vh;
+}
+
+.image-logo img {
+    position: relative;
+    margin-left: 40%;
+    margin-bottom: -1%;
+    margin-top: 0;
+    width: 20%;
 }
 
 

@@ -4,7 +4,19 @@
 }
 body{
     margin: 0;
+    overflow-y: visible;
+    background-color: floralwhite;
 }
+
+.image-logo img {
+    position: relative;
+    margin-left: -140%;
+    margin-bottom: 30%;
+    margin-top: 10%;
+    width: 20vw;
+}
+
+
 h3 {
     display: flex;
     font-size: 30px;
@@ -16,7 +28,7 @@ h3 {
 
 .reg-form{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-size: 15px;
     font-weight: bold;
     justify-content: center;
@@ -24,10 +36,10 @@ h3 {
     align-content: center;
     color: var(--greenColor);
     gap: 20px;
-    border: solid var(--greenColor) 2px;
+    border: solid floralwhite 2px;
     height: 75vh;
     padding: 20px;
-    background-color: var(--greenColor);
+    background-color: floralwhite;
 }
 
 .reg-form div{
@@ -58,9 +70,13 @@ button {
 
 }
 
+button:hover{
+    background-color: var(--orangeColor);
+}
+
 footer {
     position: absolute;
-    bottom: 8px;
+    bottom: 0;
     left: 50vw;
     transform: translateX(-50%);
 }

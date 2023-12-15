@@ -16,8 +16,14 @@
 </header>
 
 
+
 <section class="reg-form">
 
+    <div class="image-logo">
+        <img th:src="@{/images/logoHappy.png}">
+    </div>
+
+    <div class="input-info">
     <h3>РЕГИСТРИРАЙ СЕ</h3>
 
     <form th:method="post" th:action="@{/owners/register}" th:object="${ownerRegisterBindingModel}">
@@ -60,29 +66,7 @@
 
         <button type="submit">РЕГИСТРАЦИЯ</button>
     </form>
-    <!--    <div class="dog-name">-->
-    <!--        <input type="text" name="register-dog-name" id="reg-dog-name" required-->
-    <!--               placeholder="  Име на домашен любимец">-->
-    <!--    </div>-->
-
-    <!--    <select class="custom-select-pet-type" id="pet-type" name="pet-type">-->
-    <!--        <option value="">Изберете опция</option>-->
-    <!--        <option value="DOG">куче</option>-->
-    <!--        <option value="CAT">котка</option>-->
-    <!--        <option value="OTHER">друго</option>-->
-    <!--    </select>-->
-
-    <!--    <div class="breed">-->
-    <!--        <input type="text" name="register-dog-breed" id="reg-dog-breed" required-->
-    <!--               placeholder="  Порода">-->
-    <!--    </div>-->
-
-    <!--    <div class="birthdate">-->
-    <!--        <label>Рожден ден на домашния любимец</label>-->
-    <!--        <input  type="date" class="form-control" id="reg-birthDate" name="birthDate" required>-->
-    <!--    </div>-->
-
-
+    </div>
 </section>
 
 <footer th:replace="~{fragments/commons::footer}"></footer>
