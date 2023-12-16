@@ -8,6 +8,14 @@ body{
     background-color: floralwhite;
 }
 
+.image-logo img {
+    position: relative;
+    margin-left: 43%;
+    margin-bottom: -5%;
+    margin-top: -1%;
+    width: 13%;
+}
+
 .container{
     background-color: floralwhite;
     height: 75vh;
@@ -30,7 +38,7 @@ h2 {
 
 .image {
     border: solid var(--orangeColor) 5px;
-    margin: 2vw;
+    margin: 1vw;
     background-color: var(--orangeColor);
 }
 

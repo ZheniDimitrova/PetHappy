@@ -15,47 +15,59 @@
 </header>
 <div class="main-container">
 
-<section class="form-container">
-    <form th:method="post" th:action="@{/products/addProduct}" th:object="${addProductBindingModel}" class="addProduct" enctype="multipart/form-data">
-        <select th:field="*{forType}" class="categories" id="pet-type" name="forType" required>
-            <option value="">Изберете категория</option>
-            <option value="DOG"> Куче</option>
-            <option value="CAT"> Котка</option>
-            <option value="OTHER"> Друго</option>
-            <small th:errors="*{forType}" class="error-message"></small>
-        </select>
+    <section class="form-container">
+        <form th:method="post" th:action="@{/products/addProduct}" th:object="${addProductBindingModel}"
+              class="addProduct" enctype="multipart/form-data">
+            <select th:field="*{forType}" class="categories" id="pet-type" name="forType" required>
+                <option value="">Изберете категория</option>
+                <option value="DOG"> Куче</option>
+                <option value="CAT"> Котка</option>
+                <option value="OTHER"> Друго</option>
+                <small th:errors="*{forType}" class="error-message"></small>
+            </select>
 
-        <input th:field="*{productName}" type="text" name="productName" id="product-name" placeholder=" Име на продукта" required th:errorclass="input-error">
-        <small th:errors="*{productName}" class="error-message"></small>
-        <input th:field="*{description}" type="text" name="description" id="description" placeholder=" Описание на продукта" required th:errorclass="input-error">
-        <small th:errors="*{description}" class="error-message"></small>
-        <input th:field="*{price}" type="number" step="0.01" name="price" id="price" placeholder=" Цена" required th:errorclass="input-error">
-        <small th:errors="*{price}" class="error-message"></small>
+            <input th:field="*{productName}" type="text" name="productName" id="product-name"
+                   placeholder=" Име на продукта" required th:errorclass="input-error">
+            <small th:errors="*{productName}" class="error-message"></small>
+            <input th:field="*{description}" type="text" name="description" id="description"
+                   placeholder=" Описание на продукта" required th:errorclass="input-error">
+            <small th:errors="*{description}" class="error-message"></small>
+            <input th:field="*{price}" type="number" step="0.01" name="price" id="price" placeholder=" Цена" required
+                   th:errorclass="input-error">
+            <small th:errors="*{price}" class="error-message"></small>
 
-    <div class="file">
-        <input type="file" name="picture" id="picture">
-    </div>
-        <input th:field="*{storageCount}" type="number" name="storageCount" id="count" placeholder=" Брой" required th:errorclass="input-error">
-        <small th:errors="*{storageCount}" class="error-message"></small>
-        <button id="btn-add" type="submit">Добави продукт</button>
-    </form>
+            <div class="file">
+                <input type="file" name="picture" id="picture">
+            </div>
+            <input th:field="*{storageCount}" type="number" name="storageCount" id="count" placeholder=" Брой" required
+                   th:errorclass="input-error">
+            <small th:errors="*{storageCount}" class="error-message"></small>
+            <button id="btn-add" type="submit">Добави продукт</button>
+        </form>
 
-</section>
+    </section>
 
 
-<section class="change-roles-container">
+    <section class="change-roles-container">
 
-    <small th:if = "${isUserNotFound}">Потребителят не е намерен!</small>
-    <form class="form" th:action="@{/owners/changeRole}" th:method="patch">
-        <input type="text" name="username">
-        <input type="radio" name="role" value="ADMINISTRATOR">Администратор
-        <input type="radio" name="role" value="MODERATOR">Модератор
-        <input type="radio" name="role" value="USER">Потребител
+        <small th:if="${isUserNotFound}">Потребителят не е намерен!</small>
+        <form class="form" th:action="@{/owners/changeRole}" th:method="patch">
+            <input id="username" type="text" name="username" placeholder=" Въведете потребителско име">
 
-        <button type="submit">Потвърди</button>
-    </form>
+            <div class="select">
+                <input type="radio" name="role" value="ADMINISTRATOR">Администратор
+            </div>
+            <div class="select">
+                <input type="radio" name="role" value="MODERATOR">Модератор
+            </div>
+            <div class="select">
+                <input type="radio" name="role" value="USER">Потребител
+            </div>
 
-</section>
+            <button id="btn-change" type="submit">Потвърди</button>
+        </form>
+
+    </section>
 
 </div>
 

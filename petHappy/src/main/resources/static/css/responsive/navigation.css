@@ -4,18 +4,6 @@
         overflow-y: visible;
     }
 
-    nav img {
-        width: 80vw;
-        height: 40vh;
-
-    }
-
-    .left-nav, .right-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 50px;
-    }
     footer {
         position: relative;
         margin-top: 50px;
@@ -28,22 +16,28 @@
         overflow-y: visible;
     }
 
-    nav img {
-        width: 70vw;
-        height: 30vh;
 
-    }
-
-    .left-nav, .right-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 50px;
-    }
     footer {
         position: relative;
         margin-top: 50px;
     }
+}
+
+@media (max-width: 800px) {
+
+    body{
+        overflow-y: visible;
+    }
+
+    .nav a {
+        font-size: 18px;
+    }
+
+
+    /*footer {*/
+    /*    position: relative;*/
+    /*    margin-top: 50px;*/
+    /*}*/
 }
 
 
@@ -53,18 +47,21 @@
         overflow-y: visible;
     }
 
-    nav img {
-        width: 35vw;
-        height: 8vh;
-
+    nav {
+        height: 65vh;
     }
 
-    .left-nav, .right-nav {
+    .nav {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        font-size: 50px;
+        padding: 10px 5px;
+        background-color: darkseagreen;
+        width: 97vw;
+        height: 50vh;
     }
+
     footer {
         position: relative;
         margin-top: 50px;
@@ -76,20 +73,9 @@
     body{
         overflow-y: visible;
     }
-    nav img {
-        width: 30vw;
-        height: 10vh;
-    }
 
-    body nav .left-nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 50px;
-    }
-    footer {
-        position: relative;
-        margin-top: 50px;
+    nav {
+        height: 55vh;
     }
 
 

@@ -14,12 +14,12 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
-
+<div class="image-logo">
+    <img th:src="@{/images/logoHappy.png}">
+</div>
 
 <section class="form">
-    <div class="image-logo">
-        <img th:src="@{/images/logoHappy.png}">
-    </div>
+
     <h3>Вход</h3>
     <span class="invalid" th:if="${invalidCredentials}">Грешно име и/или парола! Ако нямате профил, моля, регистрирайте се!</span>
 

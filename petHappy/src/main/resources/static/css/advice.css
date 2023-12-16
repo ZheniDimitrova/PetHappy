@@ -13,7 +13,7 @@
 }
 
 body {
-    overflow: visible;
+    overflow-y: visible;
     font-family: 'Roboto', sans-serif;
     background-color: floralwhite;
 }

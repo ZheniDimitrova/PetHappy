@@ -9,8 +9,9 @@ body {
 .main-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
     margin: 30px;
 }
 
@@ -26,13 +27,17 @@ body {
     gap: 20px;
     border: solid lightgray 5px;
     height: 70vh;
+    width: 40vw;
     padding: 20px;
     background-color: floralwhite;
 }
 .change-roles-container {
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 33vw;
     height: 59vh;
     background-color: floralwhite;
     border: solid 5px lightgray;
@@ -43,6 +48,19 @@ body {
     display: flex;
     flex-direction: column;
     width: 50%;
+}
+#username {
+    font-size: 18px;
+    border: solid black 3px;
+    border-radius: 8px;
+    width: 15vw;
+    height: 5vh;
+}
+.select {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    margin: 15px;
 }
 
 .addProduct {
@@ -78,9 +96,15 @@ button {
     padding: 5px;
     margin-top: 25px;
 }
-#btn-add:hover {
+
+#btn-change{
+    margin-left: 3%;
+}
+
+#btn-add:hover, #btn-change:hover {
     background-color: var(--orangeColor);
 }
+
 
 .input-error {
     background-color: rgba(236,28,46,255);
