@@ -9,6 +9,17 @@ body {
     margin: 0;
 }
 
+.add-message {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 5%;
+    text-align: center;
+    padding: 3%;
+    border: solid lightgrey 3px;
+    margin: 2% 38%;
+}
+
 .all-orders {
     display: flex;
     flex-wrap: wrap;

@@ -31,31 +31,35 @@ body {
     padding: 20px;
     background-color: floralwhite;
 }
-.change-roles-container {
+.change-roles-container,
+.ban-user-container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 33vw;
+    width: 37vw;
     height: 59vh;
     background-color: floralwhite;
     border: solid 5px lightgray;
     padding: 70px;
-    font-size: 32px;
+    font-size: 28px;
 }
 .form {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
-#username {
+#username, #name {
     font-size: 18px;
     border: solid black 3px;
     border-radius: 8px;
     width: 15vw;
     height: 5vh;
 }
+
+
 .select {
     display: flex;
     padding: 10px;

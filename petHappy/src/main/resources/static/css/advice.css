@@ -22,6 +22,10 @@ nav {
     height: 10vh;
 }
 
+.message p {
+    margin-top: -10px;
+}
+
 .image-logo img {
     position: relative;
     margin-left: 40%;

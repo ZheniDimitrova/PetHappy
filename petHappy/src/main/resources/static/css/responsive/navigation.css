@@ -4,10 +4,43 @@
         overflow-y: visible;
     }
 
+    nav {
+        width: 100vw;
+        height: 18vh
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 5px 75px;
+        align-items: center;
+
+    }
+
     footer {
         position: relative;
         margin-top: 50px;
     }
+}
+
+@media (max-width: 1400px) {
+
+    body{
+        overflow-y: visible;
+    }
+
+    nav {
+        width: 100vw;
+        height: 18vh
+    }
+
+    .nav {
+        flex-wrap: wrap;
+    }
+
+
 }
 
 @media (max-width: 1200px) {
@@ -15,12 +48,14 @@
     body{
         overflow-y: visible;
     }
-
-
-    footer {
-        position: relative;
-        margin-top: 50px;
+    nav {
+        width: 100vw;
+        height: 20vh
     }
+    .nav {
+        flex-wrap: wrap;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -29,15 +64,22 @@
         overflow-y: visible;
     }
 
+    nav {
+        width: 100vw;
+        height: 30vh
+    }
+    .nav {
+        flex-wrap: wrap;
+    }
+
     .nav a {
         font-size: 18px;
     }
+    #username {
+        width: 35vw;
+    }
 
 
-    /*footer {*/
-    /*    position: relative;*/
-    /*    margin-top: 50px;*/
-    /*}*/
 }
 
 
@@ -48,24 +90,21 @@
     }
 
     nav {
-        height: 65vh;
+        height: 63vh;
     }
 
     .nav {
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         padding: 10px 5px;
         background-color: darkseagreen;
         width: 97vw;
-        height: 50vh;
+        height: 50vh
     }
 
-    footer {
-        position: relative;
-        margin-top: 50px;
-    }
 }
 
 @media (max-width: 400px) {
@@ -75,7 +114,7 @@
     }
 
     nav {
-        height: 55vh;
+        height: 72vh;
     }
 
 

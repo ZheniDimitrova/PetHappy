@@ -1,0 +1,84 @@
+@media (max-width: 1200px) {
+    body {
+        overflow-y: visible;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container {
+        width: 80vw;
+        height: 65vh;
+    }
+
+    .change-roles-container,
+    .ban-user-container {
+        width: 71vw;
+        height: 40vw;
+    }
+
+    #username, #name {
+        width: 22vw;
+    }
+}
+@media (max-width: 800px) {
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-container {
+        width: 100vw;
+        padding-left: 5%;
+    }
+
+    .change-roles-container,
+    .ban-user-container {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .addProduct .categories {
+        width: 90vw;
+    }
+
+    .addProduct input {
+        width: 88vw;
+    }
+
+    #username, #name {
+        width: 65vw;
+    }
+
+    .change-roles-container,
+    .ban-user-container {
+        width: 100vw;
+        height: 45vh;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .change-roles-container,
+    .ban-user-container {
+        width: 140vw;
+    }
+
+    .addProduct .categories {
+        width: 95vw;
+    }
+
+    .addProduct input {
+        width: 95vw;
+    }
+
+    #username, #name {
+        width: 65vw;
+    }
+}

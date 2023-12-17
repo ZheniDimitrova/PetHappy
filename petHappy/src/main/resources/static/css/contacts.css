@@ -14,6 +14,9 @@ body {
     margin-top: -6%;
     width: 20vw;
 }
+#title {
+    margin-top: -15px;
+}
 
 .contacts {
     display: flex;

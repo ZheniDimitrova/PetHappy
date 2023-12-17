@@ -24,6 +24,7 @@ h3 {
     justify-content: center;
     align-items: center;
     color: black;
+    margin-bottom: 1%;
 
 }
 .invalid {
@@ -73,7 +74,7 @@ button {
     margin-left: 100px;
     border: solid black 3px;
     padding: 5px;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 button:hover{

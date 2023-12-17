@@ -1,5 +1,6 @@
 package com.example.pethappy.init;
 
+import com.example.pethappy.service.MessageService;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.service.ProductService;
 import org.springframework.boot.CommandLineRunner;
@@ -10,8 +11,11 @@ public class DbInit implements CommandLineRunner {
 
         private final OwnerService ownerService;
 
-    public DbInit(ProductService productService, OwnerService ownerService) {
+        private final MessageService messageService;
+
+    public DbInit(ProductService productService, OwnerService ownerService, MessageService messageService) {
         this.ownerService = ownerService;
+        this.messageService = messageService;
     }
 
     @Override
@@ -19,7 +23,6 @@ public class DbInit implements CommandLineRunner {
 
         ownerService.initRegisterOwner();
 
-
-
+        messageService.initMessages();
     }
 }

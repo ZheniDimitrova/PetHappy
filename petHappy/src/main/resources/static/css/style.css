@@ -39,6 +39,17 @@ nav a, #logout-btn {
     border-radius: 8px;
 }
 
+.message p {
+    width: 100vw;
+    border: solid lightgray 2px;
+    padding: 7px;
+    background-color: lemonchiffon;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: -15px;
+}
+
 
 .screen {
     max-width: 100vw;
@@ -61,6 +72,9 @@ nav a, #logout-btn {
     margin-top: -38%;
     width: 20%;
 }
+
+
+
 
 footer {
     position: absolute;

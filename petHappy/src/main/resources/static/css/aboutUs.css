@@ -1,6 +1,7 @@
 
 body {
     margin: 0;
+    background-color: floralwhite;
 }
 
 
@@ -27,7 +28,7 @@ body {
 .image-logo img {
     position: relative;
     margin-left: 40%;
-    margin-bottom: 0%;
+    margin-bottom: -5%;
     margin-top: -15%;
     width: 15vw;
 }

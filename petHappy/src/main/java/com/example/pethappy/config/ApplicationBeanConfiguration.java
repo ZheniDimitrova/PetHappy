@@ -1,6 +1,7 @@
 package com.example.pethappy.config;
 
-import com.example.pethappy.filters.Interceptor;
+import com.example.pethappy.filters.MessageInterceptor;
+import com.example.pethappy.service.MessageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +22,7 @@ public class ApplicationBeanConfiguration {
     }
 
     @Bean
-    public Interceptor interceptor() {
-        return new Interceptor();
+    public MessageInterceptor interceptor(MessageService messageService) {
+        return new MessageInterceptor(messageService);
     }
 }

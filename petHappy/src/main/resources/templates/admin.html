@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/admin.css}">
     <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
+    <link rel="stylesheet" th:href="@{/css/responsive/adminResponsive.css}">
 </head>
 
 <body>
@@ -64,7 +65,28 @@
                 <input type="radio" name="role" value="USER">Потребител
             </div>
 
-            <button id="btn-change" type="submit">Потвърди</button>
+            <button id="btn-change" type="submit">Смени роля</button>
+        </form>
+
+    </section>
+
+    <section class="ban-user-container">
+
+        <small th:if="${isUserNotFound}">Потребителят не е намерен!</small>
+        <form class="form" th:action="@{/owners/banUser}" th:method="post">
+            <input id="name" type="text" name="username" placeholder=" Въведете потребителско име">
+
+            <div class="select">
+                <input type="radio" name="time" value="24hours">24 часа
+            </div>
+            <div class="select">
+                <input type="radio" name="time" value="72hours">72 часа
+            </div>
+            <div class="select">
+                <input type="radio" name="time" value="1week">1 седмица
+            </div>
+
+            <button id="btn-ban" type="submit">Блокирай</button>
         </form>
 
     </section>

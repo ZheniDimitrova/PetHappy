@@ -31,6 +31,12 @@
 
     </header>
 
+<section class="message">
+    <div th:each="m : ${messageList}">
+        <p th:text="${m.text}"></p>
+    </div>
+</section>
+
 <footer>All rights reserved. © 2023 Zheni.Di project</footer>
 
 </body>

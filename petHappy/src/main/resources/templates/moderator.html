@@ -15,6 +15,13 @@
 <header th:replace="~{fragments/commons::nav}">
 </header>
 
+<div class="add-message">
+    <h2>Добави съобщение</h2>
+    <textarea></textarea>
+    <span>Важи от:</span><input type="date">
+    <span>Важи до:</span><input type="date">
+</div>
+
 <div class="all-orders">
 
 <div th:each="o, iterator : ${ordersList}" class="order-container">
