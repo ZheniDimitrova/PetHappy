@@ -170,7 +170,7 @@ public class OwnerController {
             redirectAttributes.addFlashAttribute("editProfileBindingModel", editProfileBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.editProfileBindingModel", bindingResult);
 
-           return "redirect:/editProfile";
+           return "redirect:/owners/editProfile";
         }
 
         ownerService.editProfileData(userDetails.getUsername(), editProfileBindingModel);

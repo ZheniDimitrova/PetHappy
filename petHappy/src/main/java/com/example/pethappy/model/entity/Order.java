@@ -18,7 +18,7 @@ public class Order extends BaseEntity {
     private LocalDateTime createdOn;
     @ManyToOne
     private Owner owner;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<OrderedProduct> orderedProducts;
 
 

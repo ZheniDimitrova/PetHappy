@@ -65,11 +65,11 @@ public class ProductControllerTests {
     @Test
     @WithMockUser
     public void testAddToCart() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/addToCart/15")//productId must exist
+        mockMvc.perform(MockMvcRequestBuilders.post("/addToCart/1")//productId must exist
                 .with(csrf())
                 .param("count", "2"))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/currentProduct/15"));
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/currentProduct/1"));
 
     }
 
@@ -84,7 +84,7 @@ public class ProductControllerTests {
     @Test
     @WithMockUser
     public void testCurrentProduct() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/currentProduct/14"))// productId must exist
+        mockMvc.perform(MockMvcRequestBuilders.get("/currentProduct/1"))// productId must exist
                 .andExpect(MockMvcResultMatchers.model().attributeExists("productId"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("productTitle"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("productDesc"))

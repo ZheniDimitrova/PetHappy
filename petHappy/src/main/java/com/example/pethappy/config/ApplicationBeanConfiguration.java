@@ -1,6 +1,8 @@
 package com.example.pethappy.config;
 
+import com.example.pethappy.filters.BannedOwnerInterceptor;
 import com.example.pethappy.filters.MessageInterceptor;
+import com.example.pethappy.service.BannedOwnerService;
 import com.example.pethappy.service.MessageService;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -24,5 +26,9 @@ public class ApplicationBeanConfiguration {
     @Bean
     public MessageInterceptor interceptor(MessageService messageService) {
         return new MessageInterceptor(messageService);
+    }
+    @Bean
+    public BannedOwnerInterceptor bannedOwnerInterceptor(BannedOwnerService bannedOwnerService) {
+        return new BannedOwnerInterceptor(bannedOwnerService);
     }
 }

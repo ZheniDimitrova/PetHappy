@@ -1,5 +1,8 @@
 package com.example.pethappy.web;
 
+import com.example.pethappy.service.OwnerService;
+import com.example.pethappy.validation.OwnerRegisterBindingModel;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,15 @@ public class OwnerControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    OwnerService ownerService;
+
+    @BeforeAll
+    public void setUp() {
+        OwnerRegisterBindingModel ownerRegisterBindingModel = new OwnerRegisterBindingModel("Anna", "Ana", "Aneva", "anka@abv.bg", "234", "234");
+        ownerService.registerOwner(ownerRegisterBindingModel);
+    }
 
     @Test
     public void testIndex() throws Exception {
@@ -92,6 +104,39 @@ public class OwnerControllerTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.model().attributeExists("profileId"))
                 .andExpect(MockMvcResultMatchers.view().name("profile"));
+
+    }
+
+    @Test
+    @WithMockUser
+    public void testEditCurrentProfile() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/owners/editProfile"))
+                .andExpect(MockMvcResultMatchers.view().name("editProfile"));
+
+    }
+
+    @Test
+    @WithMockUser("Anna")
+    public void testConfirmEditProfile() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.put("/owners/confirmEditProfile")
+                .with(csrf())
+                .param("username", "Gerina")
+                .param("firstName", "Gerganche")
+                .param("lastName", "Gergancheva")
+                .param("email", "geri12@abv.bg")
+                .param("password", "222"))
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/owners/profile"));
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/owners/confirmEditProfile")
+                        .with(csrf())
+                        .param("username", "Gerina")
+                        .param("firstName", "Gergana")
+                        .param("lastName", "G")
+                        .param("email", "geri@abv.bg")
+                        .param("password", "222"))
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/owners/editProfile"));
 
     }
 

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Happy</title>
-    <link rel="stylesheet" th:href="@{/css/editProfile.css}">
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/editProfile.css}">
     <link rel="stylesheet" th:href="@{/css/responsive/navigation.css}">
 </head>
 
@@ -23,13 +23,20 @@
         <form th:action="@{/owners/confirmEditProfile}" th:method="put" th:object="${editProfileBindingModel}">
 
             <hr>
-            <i class="fa-regular fa-circle-user"></i><input type="text" name="username">
+            <i class="fa-regular fa-circle-user"></i><input type="text" name="username" th:errorclass="input-error">
+            <small th:errors="*{username}" class="error-message"></small>
             <hr>
-            <i class="fa-regular fa-user"></i><input type="text" name="firstName">
+            <i class="fa-regular fa-user"></i><input type="text" name="firstName" th:errorclass="input-error">
+            <small th:errors="*{firstName}" class="error-message"></small>
             <hr>
-            <i class="fa-regular fa-user"></i><input type="text" name="lastName">
+            <i class="fa-regular fa-user"></i><input type="text" name="lastName" th:errorclass="input-error">
+            <small th:errors="*{lastName}" class="error-message"></small>
             <hr>
-            <i class="fa-regular fa-envelope"></i><input type="email" name="email">
+            <i class="fa-regular fa-envelope"></i><input type="email" name="email" th:errorclass="input-error">
+            <small th:errors="*{email}" class="error-message"></small>
+            <hr>
+            <i class="fa-regular fa-envelope"></i><input type="text" name="password" th:errorclass="input-error">
+            <small th:errors="*{password}" class="error-message"></small>
             <hr>
             <a th:href="@{owners/confirmEditProfile}" class="edit"><button type="submit">Потвърди промените</button></a>
         </form>

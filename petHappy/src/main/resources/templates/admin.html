@@ -73,17 +73,17 @@
     <section class="ban-user-container">
 
         <small th:if="${isUserNotFound}">Потребителят не е намерен!</small>
-        <form class="form" th:action="@{/owners/banUser}" th:method="post">
+        <form class="form" th:action="@{/banOwner}" th:method="post">
             <input id="name" type="text" name="username" placeholder=" Въведете потребителско име">
 
             <div class="select">
-                <input type="radio" name="time" value="24hours">24 часа
+                <input type="radio" name="bannedTill" value="24">24 часа
             </div>
             <div class="select">
-                <input type="radio" name="time" value="72hours">72 часа
+                <input type="radio" name="bannedTill" value="72">72 часа
             </div>
             <div class="select">
-                <input type="radio" name="time" value="1week">1 седмица
+                <input type="radio" name="bannedTill" value="168">1 седмица
             </div>
 
             <button id="btn-ban" type="submit">Блокирай</button>

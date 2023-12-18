@@ -1,6 +1,7 @@
 package com.example.pethappy.service.impl;
 
 import com.example.pethappy.model.dto.MessageExportDto;
+import com.example.pethappy.model.dto.MessageImportDto;
 import com.example.pethappy.model.entity.Message;
 import com.example.pethappy.repository.MessageRepository;
 import com.example.pethappy.service.MessageService;
@@ -40,10 +41,17 @@ public class MessageServiceImpl implements MessageService {
         }
 
         Message message = new Message("Коледно работно време: Пон - Пет: 10:00 - 17:00", LocalDate.now().minusDays(7), LocalDate.now().plusDays(7));
-        Message message2 = new Message("Почивни дни: 22-27.12 и 31.12", LocalDate.now().minusDays(7), LocalDate.now().plusDays(7));
+        Message message2 = new Message("Почивни дни: 22-27.12 и 31.12", LocalDate.now().minusDays(3), LocalDate.now().plusDays(3));
 
         messageRepository.save(message);
         messageRepository.save(message2);
+    }
+
+    @Override
+    public void addMessage(MessageImportDto messageImportDto) {
+
+        Message newMessage = modelMapper.map(messageImportDto, Message.class);
+        messageRepository.save(newMessage);
     }
 
 

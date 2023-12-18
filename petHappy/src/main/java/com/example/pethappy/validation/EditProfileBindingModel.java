@@ -15,6 +15,8 @@ public class EditProfileBindingModel {
     @Email(message = "Въведете валиден имейл адрес!")
     @NotBlank(message = "Въведете имейл адрес!")
     private String email;
+    @Size(min = 3, max = 20, message = "Паролата трябва да е с дължина между 3 и 20 символа!")
+    private String password;
 
     public EditProfileBindingModel() {
     }
@@ -50,5 +52,13 @@ public class EditProfileBindingModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

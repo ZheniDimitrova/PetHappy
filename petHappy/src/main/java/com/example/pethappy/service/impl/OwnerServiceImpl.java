@@ -104,6 +104,7 @@ public class OwnerServiceImpl implements OwnerService {
         owner.setFirstName(editProfileBindingModel.getFirstName());
         owner.setLastName(editProfileBindingModel.getLastName());
         owner.setEmail(editProfileBindingModel.getEmail());
+        owner.setPassword(passwordEncoder.encode(editProfileBindingModel.getPassword()));
 
         ownerRepository.save(owner);
     }

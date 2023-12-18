@@ -16,10 +16,13 @@
 </header>
 
 <div class="add-message">
+    <form th:action="@{/addMessage}" th:method="post">
     <h2>Добави съобщение</h2>
-    <textarea></textarea>
-    <span>Важи от:</span><input type="date">
-    <span>Важи до:</span><input type="date">
+    <textarea name="text"></textarea>
+    <span>Важи от:</span><input name="startOn" type="date">
+    <span>Важи до:</span><input name="endOn" type="date">
+    <button type="submit">Добави</button>
+    </form>
 </div>
 
 <div class="all-orders">
