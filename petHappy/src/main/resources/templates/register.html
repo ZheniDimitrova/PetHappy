@@ -28,7 +28,7 @@
     <div class="input-info">
     <h3>РЕГИСТРИРАЙ СЕ</h3>
 
-    <form th:method="post" th:action="@{/owners/register}" th:object="${ownerRegisterBindingModel}">
+    <form th:method="post" th:action="@{/register}" th:object="${ownerRegisterBindingModel}">
 
         <div class="username">
             <input type="text" th:field="*{username}" name="register-username" id="register-username" required

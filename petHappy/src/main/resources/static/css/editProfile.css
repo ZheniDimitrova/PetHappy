@@ -1,8 +1,7 @@
 @import url('https://use.fontawesome.com/releases/v6.5.1/css/all.css');
 
 :root {
-    --greenColor: #bfd798;
-    --orangeColor: rgba(246, 132, 32, 255);
+       --orangeColor: rgba(246, 132, 32, 255);
 }
 
 body{
@@ -54,6 +53,11 @@ button {
     background-color: darkorange;
     font-size: 16px;
     font-weight: bold;
+}
+
+footer {
+    position: absolute;
+    bottom: -125px;
 }
 
 .input-error {

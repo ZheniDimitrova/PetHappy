@@ -1,3 +1,19 @@
+@media (max-width: 800px) {
+
+    .add-message form {
+        width: fit-content;
+        height: fit-content;
+        padding: 10%;
+
+    }
+    .order-container {
+        width: fit-content;
+        height: fit-content;
+        margin: 3%;
+    }
+}
+
+
 @media (max-width: 550px) {
 
     thead {
@@ -11,6 +27,9 @@
 
 
 @media (max-width: 400px) {
+    .add-message form {
+        width: 30%;
+    }
 
     .order-info span {
         font-size: 16px;

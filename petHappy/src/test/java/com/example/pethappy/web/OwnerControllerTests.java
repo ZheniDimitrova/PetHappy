@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -24,7 +25,9 @@ public class OwnerControllerTests {
     private MockMvc mockMvc;
 
     @Autowired
-    OwnerService ownerService;
+    private OwnerService ownerService;
+
+
 
     @BeforeAll
     public void setUp() {
@@ -40,13 +43,13 @@ public class OwnerControllerTests {
 
     @Test
     public void testRegister() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/owners/register"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/register"))
                 .andExpect(MockMvcResultMatchers.view().name("register"));
     }
 
     @Test
     public void confirmRegister() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/owners/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/register")
                         .with(csrf())
                         .param("username", "Geri")
                         .param("firstName", "Gergana")
@@ -57,7 +60,7 @@ public class OwnerControllerTests {
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("/"));
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/owners/register")
+        mockMvc.perform(MockMvcRequestBuilders.post("/register")
                         .with(csrf())
                         .param("username", "Geri")
                         .param("firstName", "Gergana")
@@ -71,7 +74,7 @@ public class OwnerControllerTests {
 
     @Test
     public void testLogin() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/owners/login"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/login"))
                 .andExpect(MockMvcResultMatchers.view().name("login"));
     }
 

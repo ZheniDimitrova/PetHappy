@@ -40,66 +40,12 @@ public class OwnerController {
 
     }
 
-
-    @ModelAttribute
-    public OwnerRegisterBindingModel ownerRegisterBindingModel() {
-        return  new OwnerRegisterBindingModel();
-    }
-
     @ModelAttribute
     public EditProfileBindingModel editProfileBindingModel() {
         return new EditProfileBindingModel();
     }
 
 
-
-
-    @GetMapping("/register")
-    public String register() {
-
-        return "register";
-
-    }
-
-    @PostMapping("/register")
-    public String confirmRegister(@Valid OwnerRegisterBindingModel ownerRegisterBindingModel, BindingResult bindingResult,
-                                  RedirectAttributes redirectAttributes, HttpSession httpSession) {
-        if (bindingResult.hasErrors() || !ownerRegisterBindingModel.getPassword().equals(ownerRegisterBindingModel.getConfirmPassword())) {
-            redirectAttributes.addFlashAttribute("ownerRegisterBindingModel", ownerRegisterBindingModel);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.ownerRegisterBindingModel", bindingResult);
-
-            return "redirect:register";
-        }
-
-        ownerService.registerOwner(ownerRegisterBindingModel);
-        ownerService.loginOwner(ownerRegisterBindingModel.getUsername());
-        httpSession.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
-
-        return "redirect:/";
-
-    }
-
-
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-
-    }
-
-    @PostMapping("/login")
-    public String confirmLogin() {
-
-        return "redirect:index";
-
-    }
-
-    @PostMapping("/login-error")
-    public String errorCredentials(RedirectAttributes redirectAttributes) {
-        redirectAttributes.addFlashAttribute("invalidCredentials", true);
-
-        return "redirect:/owners/login";
-    }
 
     @GetMapping("/profile")
     public String myProfile(@AuthenticationPrincipal UserDetails userDetails, Model model) {
@@ -123,12 +69,11 @@ public class OwnerController {
     public String changeRole(@RequestParam("username") String username, @RequestParam("role") String role, @AuthenticationPrincipal UserDetails userDetails, HttpSession httpSession,
                              RedirectAttributes redirectAttributes) {
 
-        try {
-            ownerService.changeCurrentRole(username, role);
-        } catch (IllegalArgumentException e) {
+        boolean isFound = ownerService.changeCurrentRole(username, role);
+
+        if (!isFound) {
             redirectAttributes.addFlashAttribute("isUserNotFound", true);
         }
-
 
         if (userDetails.getUsername().equals(username)){
             SecurityContextHolder.clearContext();

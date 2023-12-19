@@ -51,7 +51,7 @@
 
     <section class="change-roles-container">
 
-        <small th:if="${isUserNotFound}">Потребителят не е намерен!</small>
+        <p class="error" th:if="${isUserNotFound}">Потребителят не е намерен!</p>
         <form class="form" th:action="@{/owners/changeRole}" th:method="patch">
             <input id="username" type="text" name="username" placeholder=" Въведете потребителско име">
 
@@ -72,7 +72,7 @@
 
     <section class="ban-user-container">
 
-        <small th:if="${isUserNotFound}">Потребителят не е намерен!</small>
+        <small class="error" th:if="${isBannedUserNotFound}">Потребителят не е намерен!</small>
         <form class="form" th:action="@{/banOwner}" th:method="post">
             <input id="name" type="text" name="username" placeholder=" Въведете потребителско име">
 

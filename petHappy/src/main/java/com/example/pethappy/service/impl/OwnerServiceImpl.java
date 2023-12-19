@@ -110,11 +110,11 @@ public class OwnerServiceImpl implements OwnerService {
     }
 
     @Override
-    public void changeCurrentRole(String username, String role) {
+    public boolean changeCurrentRole(String username, String role) {
         Owner owner = ownerRepository.findByUsername(username);
 
         if (owner == null) {
-            throw new IllegalArgumentException("Owner not found!");
+            return false;
         }
 
         Set<UserRole> userRoles = new HashSet<>();
@@ -138,6 +138,7 @@ public class OwnerServiceImpl implements OwnerService {
 
         owner.setUserRoles(userRoles);
         ownerRepository.save(owner);
+        return true;
     }
 
 

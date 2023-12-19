@@ -20,6 +20,8 @@ public class MessageControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
+
+
     @Test
     @WithMockUser
     public void testAddMessage() throws Exception {

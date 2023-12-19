@@ -61,7 +61,7 @@ public class ProductController {
 
     @PostMapping("/products/addProduct")
     public String confirmAddProduct(@Valid AddProductBindingModel addProductBindingModel, BindingResult bindingResult,
-                                    RedirectAttributes redirectAttributes) {
+                                    RedirectAttributes redirectAttributes) throws IOException {
 
         if (bindingResult.hasErrors()) {
            redirectAttributes.addFlashAttribute("addProductBindingModel", addProductBindingModel);
@@ -69,13 +69,8 @@ public class ProductController {
 
 
         } else {
-            try {
                 Picture picture = pictureService.uploadPicture(addProductBindingModel.getPicture());
                 Product product = productService.addProduct(addProductBindingModel, picture);
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
         }
 
         return "redirect:/owners/admin";

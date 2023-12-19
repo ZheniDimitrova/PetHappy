@@ -5,8 +5,8 @@
     }
 
     nav {
-        width: 100vw;
-        height: 18vh
+        width: fit-content;
+        height: fit-content;
     }
 
     .nav {
@@ -32,8 +32,8 @@
     }
 
     nav {
-        width: 100vw;
-        height: 18vh
+        width: fit-content;
+        height: fit-content;
     }
 
     .nav {
@@ -49,8 +49,8 @@
         overflow-y: visible;
     }
     nav {
-        width: 100vw;
-        height: 20vh
+        width: fit-content;
+        height: fit-content;
     }
     .nav {
         flex-wrap: wrap;
@@ -65,8 +65,8 @@
     }
 
     nav {
-        width: 100vw;
-        height: 30vh
+        width: fit-content;
+        height: fit-content;
     }
     .nav {
         flex-wrap: wrap;
@@ -90,7 +90,7 @@
     }
 
     nav {
-        height: 63vh;
+        height: fit-content;
     }
 
     .nav {
@@ -101,8 +101,8 @@
         align-items: center;
         padding: 10px 5px;
         background-color: darkseagreen;
-        width: 97vw;
-        height: 50vh
+        width: fit-content;
+        height: fit-content;
     }
 
 }
@@ -114,7 +114,7 @@
     }
 
     nav {
-        height: 72vh;
+        height: fit-content;
     }
 
 

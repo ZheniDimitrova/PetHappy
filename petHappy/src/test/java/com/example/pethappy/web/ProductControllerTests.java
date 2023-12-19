@@ -1,6 +1,5 @@
 package com.example.pethappy.web;
 
-import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.model.entity.Picture;
 import com.example.pethappy.service.PictureService;
 import com.example.pethappy.service.ProductService;
@@ -36,6 +35,8 @@ public class ProductControllerTests {
 
     @Autowired
     private PictureService pictureService;
+
+
 
     @BeforeAll
     public void setUp() throws IOException {

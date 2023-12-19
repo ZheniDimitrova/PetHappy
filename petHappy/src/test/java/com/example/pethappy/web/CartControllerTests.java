@@ -2,7 +2,6 @@ package com.example.pethappy.web;
 
 import com.example.pethappy.model.dto.ProductExportDto;
 import com.example.pethappy.service.OwnerService;
-import com.example.pethappy.service.ProductService;
 import com.example.pethappy.util.Cart;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import org.junit.jupiter.api.BeforeAll;
@@ -34,6 +33,8 @@ public class CartControllerTests {
     private OwnerService ownerService;
 
 
+
+
     @BeforeAll
     public void setUp() {
         cart.getProducts().add(new ProductExportDto());
@@ -43,6 +44,8 @@ public class CartControllerTests {
         OwnerRegisterBindingModel ownerRegisterBindingModel = new OwnerRegisterBindingModel("Roko", "Rocko", "Rockov", "roko@abv.bg", "123", "123");
         ownerService.registerOwner(ownerRegisterBindingModel);
     }
+
+
 
     @Test
     @WithMockUser(username = "Roko")

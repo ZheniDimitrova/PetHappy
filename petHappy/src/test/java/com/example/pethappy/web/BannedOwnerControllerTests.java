@@ -1,6 +1,5 @@
 package com.example.pethappy.web;
 
-import com.example.pethappy.service.BannedOwnerService;
 import com.example.pethappy.service.OwnerService;
 import com.example.pethappy.validation.OwnerRegisterBindingModel;
 import org.junit.jupiter.api.BeforeAll;
@@ -27,13 +26,13 @@ public class BannedOwnerControllerTests {
     @Autowired
     private OwnerService ownerService;
 
+
+
     @BeforeAll
     public void setUp() {
         OwnerRegisterBindingModel ownerRegisterBindingModel = new OwnerRegisterBindingModel("Nikolaus", "Nikolai", "Nikolaev", "nikos@abv.bg", "234", "234");
         ownerService.registerOwner(ownerRegisterBindingModel);
     }
-
-
 
     @Test
     @WithMockUser

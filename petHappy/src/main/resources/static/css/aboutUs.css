@@ -1,5 +1,6 @@
 
 body {
+    overflow-y: visible;
     margin: 0;
     background-color: floralwhite;
 }
@@ -42,7 +43,7 @@ body {
 
 footer {
     position: absolute;
-    bottom: 0;
+    bottom: -100px;
     left: 50vw;
     transform: translateX(-50%);
 }

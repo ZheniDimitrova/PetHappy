@@ -25,19 +25,19 @@ public class SecurityConfiguration {
 
 
         httpSecurity.authorizeHttpRequests((requests) ->
-                requests.requestMatchers( "/", "/static/**", "/images/**", "/css/**", "/css/responsive/**","/owners/login", "/owners/register", "/aboutUs", "/contacts", "/shop",
-                        "/products/{type}", "/downloadPicture/{productId}", "/owners/login-error").permitAll()
+                requests.requestMatchers( "/", "/static/**", "/images/**", "/css/**", "/css/responsive/**","/login", "/register", "/aboutUs", "/contacts", "/shop",
+                        "/products/{type}", "/downloadPicture/{productId}", "/login-error").permitAll()
                 .requestMatchers("/owners/admin", "/products/addProduct", "/deleteProduct/{productId}").hasAuthority(UserRoleEnum.ADMINISTRATOR.name())
                 .requestMatchers("/owners/moderator", "/deleteOrder/{orderId}").hasAuthority(UserRoleEnum.MODERATOR.name())
                 .anyRequest().authenticated())
                 .formLogin((form) ->
-                form.loginPage("/owners/login")
+                form.loginPage("/login")
                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                 .passwordParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY)
                 .defaultSuccessUrl("/", true)
-                .failureForwardUrl("/owners/login-error"))
+                .failureForwardUrl("/login-error"))
                 .logout((logout) ->
-                        logout.logoutUrl("/owners/logout").invalidateHttpSession(true)
+                        logout.logoutUrl("/logout").invalidateHttpSession(true)
                 .logoutSuccessUrl("/"))
                 .securityContext((securityContext) ->
                 securityContext.securityContextRepository(securityContextRepository));

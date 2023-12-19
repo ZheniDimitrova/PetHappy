@@ -1,0 +1,13 @@
+@media (max-width: 1200px) {
+
+    .order-info{
+        height: fit-content;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 400px) {
+    .cart-container {
+        width: fit-content;
+    }
+}
