@@ -4,10 +4,35 @@
         height: fit-content;
         width: fit-content;
     }
+
+    .order-info .order input {
+        width: fit-content;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-container {
+        width: fit-content;
+    }
+
+    .final-price {
+        width: fit-content;
+        font-size: 32px;
+    }
+
+    button {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 400px) {
-    .cart-container {
+    
+    .final-price {
         width: fit-content;
+        font-size: 28px;
+    }
+
+    button {
+        font-size: 32px;
     }
 }

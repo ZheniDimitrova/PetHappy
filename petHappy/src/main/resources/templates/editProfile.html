@@ -36,7 +36,7 @@
             <i class="fa-regular fa-envelope"></i><input type="email" name="email" th:errorclass="input-error">
             <small th:errors="*{email}" class="error-message"></small>
             <hr>
-            <i class="fa-regular fa-envelope"></i><input type="text" name="password" th:errorclass="input-error">
+            <i class="fa-solid fa-unlock"></i><input type="text" name="password" th:errorclass="input-error">
             <small th:errors="*{password}" class="error-message"></small>
             <hr>
             <a th:href="@{owners/confirmEditProfile}" class="edit"><button type="submit">Потвърди промените</button></a>

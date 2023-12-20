@@ -27,7 +27,10 @@ public class BannedOwnerInterceptor implements HandlerInterceptor {
 
        if(principal != null && bannedOwnerService.bannedOwnerExists(principal.getName())){
 
-           modelAndView.setViewName("bannedOwner");
+            if(modelAndView != null){
+                modelAndView.setViewName("bannedOwner");
+            }
+
        };
 
     }

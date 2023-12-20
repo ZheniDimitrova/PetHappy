@@ -5,7 +5,7 @@
     }
 
     nav {
-        width: fit-content;
+        width: 100vw;
         height: fit-content;
     }
 
@@ -31,10 +31,6 @@
         overflow-y: visible;
     }
 
-    nav {
-        width: fit-content;
-        height: fit-content;
-    }
 
     .nav {
         flex-wrap: wrap;
@@ -48,10 +44,7 @@
     body{
         overflow-y: visible;
     }
-    nav {
-        width: fit-content;
-        height: fit-content;
-    }
+
     .nav {
         flex-wrap: wrap;
     }
